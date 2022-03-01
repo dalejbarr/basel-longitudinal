@@ -121,18 +121,17 @@ If you want to learn more about what packages are included in the tidyverse and 
 
 #### Install additional packages
 
-After installing the tidyverse, let's install some more packages that you'll need. Copy the text below into your console.
+We will also need the package **`{lme4}`** which provides functions for mixed-effects modeling.
 
 ```{r other-packages, eval = FALSE}
-install.packages(c("ez", "lme4", "afex", "pbkrtest", "boot", "car", "MASS", 
-                   "sjPlot", "yarrr", "pwr", "broom"))
+install.packages("lme4")
 ```
 
-This will probably take a few minutes to complete, and you'll see lots more gibberish appear in the console while the packages install.
+This will probably take a few minutes to complete, and you'll see lots more gibberish appear in the console while the package installs.
 
-#### Install RMarkdown and related packages
+#### (Optional) Install RMarkdown and related packages
 
-We will be learning to create **dynamic reports** in RMarkdown, which is a text-based format for integrating code, text, and graphics.
+When completing exercises, it is useful to create files that can be compiled into **dynamic reports** using RMarkdown, which is a text-based format for integrating code, text, and graphics.
 
 The easiest way to install the packages you need for this is to just create a new RMarkdown document, and RStudio will prompt you to install the packages that are required.
 

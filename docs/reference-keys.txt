@@ -8,7 +8,7 @@ launch-rstudio
 installing-add-on-packages
 install-the-tidyverse
 install-additional-packages
-install-rmarkdown-and-related-packages
+optional-install-rmarkdown-and-related-packages
 additional-tweaks-you-might-want-to-try
 changing-how-rstudio-looks
 compiling-pdf-reports
@@ -50,4 +50,6 @@ load
 writing-data
 reproducible-reports-with-rstudio-and-rmarkdown
 resources
-bibliography
+references-and-further-reading
+references
+further-reading

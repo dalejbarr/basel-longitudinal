@@ -52,7 +52,7 @@
 <li class="book-part">Appendices</li>
 <li><a class="active" href="installing-and-configuring-rrstudio.html"><span class="header-section-number">A</span> Installing and Configuring R/RStudio</a></li>
 <li><a class="" href="coding-in-r-with-the-rstudio-ide.html"><span class="header-section-number">B</span> Coding in R with the RStudio IDE</a></li>
-<li><a class="" href="bibliography.html"><span class="header-section-number">C</span> Bibliography</a></li>
+<li><a class="" href="references-and-further-reading.html"><span class="header-section-number">C</span> References and Further Reading</a></li>
 </ul>
 
         <div class="book-extra">
@@ -171,17 +171,16 @@ glmmTMB.cpp:863:1:   required from here</code></pre>
 <h4>
 <span class="header-section-number">A.3.3.2</span> Install additional packages<a class="anchor" aria-label="anchor" href="#install-additional-packages"><i class="fas fa-link"></i></a>
 </h4>
-<p>After installing the tidyverse, let's install some more packages that you'll need. Copy the text below into your console.</p>
+<p>We will also need the package <strong><a href="https://github.com/lme4/lme4/">lme4</a></strong> which provides functions for mixed-effects modeling.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ez"</span>, <span class="st">"lme4"</span>, <span class="st">"afex"</span>, <span class="st">"pbkrtest"</span>, <span class="st">"boot"</span>, <span class="st">"car"</span>, <span class="st">"MASS"</span>, 
-                   <span class="st">"sjPlot"</span>, <span class="st">"yarrr"</span>, <span class="st">"pwr"</span>, <span class="st">"broom"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>This will probably take a few minutes to complete, and you'll see lots more gibberish appear in the console while the packages install.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"lme4"</span><span class="op">)</span></code></pre></div>
+<p>This will probably take a few minutes to complete, and you'll see lots more gibberish appear in the console while the package installs.</p>
 </div>
-<div id="install-rmarkdown-and-related-packages" class="section level4">
+<div id="optional-install-rmarkdown-and-related-packages" class="section level4">
 <h4>
-<span class="header-section-number">A.3.3.3</span> Install RMarkdown and related packages<a class="anchor" aria-label="anchor" href="#install-rmarkdown-and-related-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A.3.3.3</span> (Optional) Install RMarkdown and related packages<a class="anchor" aria-label="anchor" href="#optional-install-rmarkdown-and-related-packages"><i class="fas fa-link"></i></a>
 </h4>
-<p>We will be learning to create <strong>dynamic reports</strong> in RMarkdown, which is a text-based format for integrating code, text, and graphics.</p>
+<p>When completing exercises, it is useful to create files that can be compiled into <strong>dynamic reports</strong> using RMarkdown, which is a text-based format for integrating code, text, and graphics.</p>
 <p>The easiest way to install the packages you need for this is to just create a new RMarkdown document, and RStudio will prompt you to install the packages that are required.</p>
 <p>From the pull down menu, choose <code>File -&gt; New File -&gt; RMarkdown...</code> and this will lead you to the prompt to install packages.</p>
 <p>Once they're installed, you're ready to go!</p>

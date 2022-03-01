@@ -798,11 +798,13 @@ fortune()
 
 ```
 ## 
-## Ah, so that's why my report of a bug in the RCheapViagra package didn't get
-## through....
-##    -- Barry Rowlingson (after Peter Dalgaard announced a new spam filter for
-##       R-bugs)
-##       R-devel (January 2004)
+## Thomas Lumley: The precedence of ^ is higher than that of unary minus. It may
+## be surprising, [...]
+## Herve Pages: No, it's not surprising. At least to me... In the country where I
+## grew up, I've been teached that -x^2 means -(x^2) not (-x)^2.
+##    -- Thomas Lumley and Herve Pages (both explaining that operator precedence
+##       is working perfectly well)
+##       R-devel (January 2006)
 ```
 
 Note that we will use the convention `package::function()` and `package::object` to indicate in which add-on package a function or object resides.  For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the `readr` add-on package.  If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context).  Sometimes I will make this explicit by using `base` in the place of the package name; for instance, I might refer to `rnorm()` in base as `base::rnorm()`.
@@ -893,8 +895,8 @@ rnorm(10)
 ```
 
 ```
-##  [1]  1.1491741 -0.9783915  0.5903277 -0.8146052 -0.4617544 -0.5541217
-##  [7] -2.1306344 -1.0003676  1.5248562 -2.0296746
+##  [1] -1.0757864  0.1311721  0.2358528 -0.7830163 -2.1644953 -1.3013681
+##  [7] -0.2052661 -1.0980443 -0.4126694  1.0366412
 ```
 
 If you want 10 numbers from a distribution with a mean of 100:
@@ -905,8 +907,8 @@ rnorm(10, 100)
 ```
 
 ```
-##  [1]  99.38449  99.67837  99.48771  99.64590 100.19205  99.65367  99.38412
-##  [8]  99.25104  99.13978 100.37895
+##  [1]  99.38386 100.26058 101.49286  99.60480 100.04932 100.77347 101.02930
+##  [8]  99.40667 101.24050  99.96300
 ```
 
 This would be an equivalent but less efficient way of calling the function:
@@ -917,8 +919,8 @@ rnorm(n = 10, mean = 100)
 ```
 
 ```
-##  [1]  99.35777 100.17408 100.79582  99.34971  98.42908  99.09628  99.39221
-##  [8]  99.10352  98.79329 100.25519
+##  [1] 101.78166  98.40983  99.44995  98.64186 101.38305  99.01906  99.44279
+##  [8] 102.86124 100.26840 100.37652
 ```
 
 We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call.  However, if we want to change the default for an argument coming later in the list, then we need to name it.  For instance, if we wanted to keep the default `mean = 0` but change the standard deviation to 100 we would do it this way:
@@ -929,8 +931,8 @@ rnorm(10, sd = 100)
 ```
 
 ```
-##  [1]  78.037032  36.181680 117.627854  -3.240097   1.308888  87.974801
-##  [7]   1.372651 -59.027495  29.390508 201.298716
+##  [1] -30.040485 -18.196164  39.635285  50.266067 -41.956565 176.912607
+##  [7]   1.149451 -26.220380 -44.115820 -54.412135
 ```
 
 #### Exercises {#cowsay}
@@ -1091,11 +1093,10 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## If anything, there should be a Law: Thou Shalt Not Even Think Of Producing A Graph That Looks Like Anything From A Spreadsheet.
-    ##  Ted Harding
-    ##  in a discussion about producing graphics
+    ## I'm really curious to know why the "two types" of sum of squares are called "Type I" and "Type III"! This is a very common misconception, particularly among SAS users who have been fed this nonsense quite often for all their professional lives. Fortunately the reality is much simpler. There is, by any sensible reckoning, only ONE type of sum of squares, and it always represents an improvement sum of squares of the outer (or alternative) model over the inner (or null hypothesis) model. What the SAS highly dubious classification of sums of squares does is to encourage users to concentrate on the null hypothesis model and to forget about the alternative. This is always a very bad idea and not surprisingly it can lead to nonsensical tests, as in the test it provides for main effects "even in the presence of interactions", something which beggars definition, let alone belief.
+    ##  Bill Venables
     ##  R-help
-    ##  August 2007 
+    ##  November 2000 
     ##  --------------
     ##     \
     ##       \
@@ -1127,7 +1128,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  ----- 
-    ## Tue Mar  1 13:37:45 2022 
+    ## Tue Mar  1 14:09:57 2022 
     ##  ------ 
     ##     \   
     ##      \
@@ -1156,7 +1157,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Tue Mar  1 13:37:45 2022 
+    ## Tue Mar  1 14:09:57 2022 
     ##  --------------
     ##     \
     ##       \
@@ -1202,7 +1203,7 @@ sort(y, TRUE) # set second argument to 'TRUE' so that sort order is descending
 ```
 
 ```
-## [1] 10  5  4  3  1
+## [1] 6 4 2
 ```
 
 
@@ -1214,7 +1215,7 @@ sort(unique(sample(1:10, 5, replace = TRUE)), TRUE)
 ```
 
 ```
-## [1] 8 4 2
+## [1] 6 5 4 2 1
 ```
 
 (If the above call looks confusing, it should!) The call to `sample()` is embedded within a call to `unique()` which in turn is embedded within a call to `sort()`. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function `sample()`, whose result is then passed in as the first argument to `unique(`), whose result in turn is passed in as the first argument to `sort()`; notice the second argument of sort (`TRUE`) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.
@@ -1228,7 +1229,7 @@ sample(1:10, 5, replace = TRUE) %>%
 ```
 
 ```
-## [1] 6 4 3
+## [1] 8 5 4 1
 ```
 
 R will calculate the result of `sample(1:10, 5, replace = TRUE)` and then pass this result as the first argument of `unique()`; then, the result of `unique()` will in turn be passed along as the first argument of `sort()` with the second argument set to `TRUE`. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.
