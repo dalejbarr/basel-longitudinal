@@ -33,9 +33,9 @@ The goal of this workshop is to provide a foundational understanding of the use 
 
 Two pre-requisites for the workshop are: (1) basic understanding of linear regression and (2) some familiarity with the R statistical programming environment (https://cran.r-project.org) is an important pre-requisite for the workshop. 
 
-Please have R and RStudio installed on your laptop prior to the start of the workshop, including the packages **`{tidyverse}`** and **`lme4`**. You can find help on installation [in the Appendix](90_installation.html).
+Please have R and RStudio installed on your laptop prior to the start of the workshop, including the packages **`{tidyverse}`** and **`lme4`**. You can find help on installation [in the Appendix](installing-and-configuring-rrstudio.html).
 
-While it will be possible to understand the conceptual content of the workshop without knowing R, there will be interactive exercises that require understanding of the fundamentals of R programming. For beginners, it is recommended that you work through [the introductory materials in the Appendix](91_intro-to-R.html).
+While it will be possible to understand the conceptual content of the workshop without knowing R, there will be interactive exercises that require understanding of the fundamentals of R programming. For beginners, it is recommended that you work through [the introductory materials in the Appendix](coding-in-r-with-the-rstudio-ide.html).
 
 ## Workshop plan {-}
 
