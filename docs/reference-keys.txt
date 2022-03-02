@@ -31,6 +31,13 @@ modeling-trends
 todo-resources
 activity-1
 testing-for-a-difference-in-time-varying-pattern-across-two-groups
+variance-covariance-matrices
+resources-2
+activities-2
+simulating-data-from-covariance-matrices
+a-2x2-matrix
+a-4x4-matrix
+converting-matrices-to-tibbles-and-combining-with-joins
 installing-and-configuring-rrstudio
 what-is-r
 the-rstudio-integrated-development-environment-ide
@@ -82,7 +89,7 @@ workdir
 load
 writing-data
 reproducible-reports-with-rstudio-and-rmarkdown
-resources-2
+resources-3
 references-and-further-reading
 further-reading
 references

@@ -12,14 +12,15 @@ For the (made up) data below, you have longitudinal data for two groups, A and B
 
 
 
-
 <img src="04_modeling-trends_files/figure-html/plot-data-1.png" width="100%" style="display: block; margin: auto;" />
 
 Once you have downloaded the file and put it in your working directory, you can load the data using:
 
 
 ```r
-qdata <- readRDS("data/quadratic.rds")
+library("tidyverse")
+
+qdata <- readRDS("quadratic.rds")
 ```
 
 **Your task**: Using a single model, fit quadradic functions for both of the groups, with orthogonal polynomials.
@@ -35,7 +36,7 @@ dat <- tibble(time = 1:20,
 ## matrix of polynomial predictors
 mx <- poly(dat$time, degree = 2, simple=TRUE)
 
-## add using bind_cols() and as_tibble()
+## add using mutate()
 dat2 <- dat %>%
   mutate(t1 = mx[, 1], # first column
          t2 = mx[, 2]) # second column

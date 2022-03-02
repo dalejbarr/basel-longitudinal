@@ -798,12 +798,14 @@ fortune()
 
 ```
 ## 
-## Actually, I see it as part of my job to inflict R on people who are perfectly
-## happy to have never heard of it. Happiness doesn't equal proficient and
-## efficient. In some cases the proficiency of a person serves a greater good than
-## their momentary happiness.
-##    -- Patrick Burns
-##       R-help (April 2005)
+## We also have huge amounts of work going into calibration transfer, i.e. making
+## quantitative predictive models work on a different instrument. This is always a
+## whole lot of work, and for some fields of problems at the moment considered
+## basically impossible even between two instruments of the same model and
+## manufacturer.
+##    -- Claudia Beleites (in a discussion about publication bias and scientific
+##       validity)
+##       R-help (January 2011)
 ```
 
 Note that we will use the convention `package::function()` and `package::object` to indicate in which add-on package a function or object resides.  For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the `readr` add-on package.  If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context).  Sometimes I will make this explicit by using `base` in the place of the package name; for instance, I might refer to `rnorm()` in base as `base::rnorm()`.
@@ -894,8 +896,8 @@ rnorm(10)
 ```
 
 ```
-##  [1]  1.23381441 -0.79499876 -0.01514048  0.02192222  0.13266759 -1.47212499
-##  [7]  0.62490241  0.22848807  0.75918074 -0.08961331
+##  [1]  0.1330027 -0.3666672 -1.4090855 -0.9041730 -0.5190555  2.4363767
+##  [7] -0.3676726 -0.3959483  0.4743739  0.0122151
 ```
 
 If you want 10 numbers from a distribution with a mean of 100:
@@ -906,8 +908,8 @@ rnorm(10, 100)
 ```
 
 ```
-##  [1] 100.41941  98.78563 100.04844  98.79582  99.97259 100.47883  99.14409
-##  [8] 100.30727 101.31444  99.93011
+##  [1] 100.70261 101.00644  99.70660 101.26701 100.22334  99.51217 100.36406
+##  [8] 100.11526 101.05051 100.36123
 ```
 
 This would be an equivalent but less efficient way of calling the function:
@@ -918,8 +920,8 @@ rnorm(n = 10, mean = 100)
 ```
 
 ```
-##  [1]  99.17715  99.56915 100.07858  99.90268  98.44656 100.34937  98.26715
-##  [8]  98.91528  97.74684  99.30335
+##  [1] 100.42302  99.95292  97.89468  99.38373  99.21327 100.92726  98.34837
+##  [8] 100.04711  99.47526 101.08415
 ```
 
 We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call.  However, if we want to change the default for an argument coming later in the list, then we need to name it.  For instance, if we wanted to keep the default `mean = 0` but change the standard deviation to 100 we would do it this way:
@@ -930,8 +932,8 @@ rnorm(10, sd = 100)
 ```
 
 ```
-##  [1] 104.13380  57.03688  97.78518  20.42631  16.81703 -75.22898 -71.50099
-##  [8] -47.47542  79.17899  37.68194
+##  [1]  -66.32142  224.65260   32.81011 -129.83216  -84.25337 -123.17249
+##  [7]  -42.13311   91.62492  -19.59960  -95.63658
 ```
 
 #### Exercises {#cowsay}
@@ -1092,12 +1094,12 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## So it ***do not refuse*** to read the data. I do not expect some dwarf climbs out from your computer and says he will not read your data. Or is he?
-    ## ?read.table gives you more details about how to read some data.
-    ##  Petr Pikal
-    ##  after a post that said read.table() refuses to read unbalanced data
+    ## Thomas Lumley: The algorithm in glm.fit, while not perfect, is a little smarter than a simple IRLS. It uses step-halving to back away from the edge, and when the parameter space is convex it has a reasonable chance of creeping along the boundary to the true MLE.
+    ## Peter Dalgaard: Hmm. That wasn't my experience. I had a situation where there was like a (virtual) maximum outside the boundary, and the algorithm would basically stay on the path to that peak, banging its little head into the same point of the wall repeatedly, so to speak.
+    ##  Thomas Lumley and Peter Dalgaard
+    ##  about problems with constrained optimzation in GLMs and "the little optimizer that couldn't"
     ##  R-help
-    ##  October 2004 
+    ##  November 2004 
     ##  --------------
     ##     \
     ##       \
@@ -1129,7 +1131,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  ----- 
-    ## Wed Mar  2 05:06:20 2022 
+    ## Wed Mar  2 10:44:00 2022 
     ##  ------ 
     ##     \   
     ##      \
@@ -1158,7 +1160,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Wed Mar  2 05:06:20 2022 
+    ## Wed Mar  2 10:44:00 2022 
     ##  --------------
     ##     \
     ##       \
@@ -1204,7 +1206,7 @@ sort(y, TRUE) # set second argument to 'TRUE' so that sort order is descending
 ```
 
 ```
-## [1] 10  8  4  3
+## [1] 10  9  8  6  1
 ```
 
 
@@ -1216,7 +1218,7 @@ sort(unique(sample(1:10, 5, replace = TRUE)), TRUE)
 ```
 
 ```
-## [1] 10  6  5  3
+## [1] 10  8  6  3  2
 ```
 
 (If the above call looks confusing, it should!) The call to `sample()` is embedded within a call to `unique()` which in turn is embedded within a call to `sort()`. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function `sample()`, whose result is then passed in as the first argument to `unique(`), whose result in turn is passed in as the first argument to `sort()`; notice the second argument of sort (`TRUE`) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.
@@ -1230,7 +1232,7 @@ sample(1:10, 5, replace = TRUE) %>%
 ```
 
 ```
-## [1] 10  9  8  5  4
+## [1] 10  9  8  7
 ```
 
 R will calculate the result of `sample(1:10, 5, replace = TRUE)` and then pass this result as the first argument of `unique()`; then, the result of `unique()` will in turn be passed along as the first argument of `sort()` with the second argument set to `TRUE`. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.

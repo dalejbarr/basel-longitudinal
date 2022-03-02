@@ -10,7 +10,6 @@
 
 For the (made up) data below, you have longitudinal data for two groups, A and B, both of which show a quadratic trend over time. The data are in the R binary file [quadratic.rds](data/quadratic.rds){target="_download"}.
 
-
 ```{r load-data, echo=FALSE}
 qdata <- readRDS("data/quadratic.rds")
 ```
@@ -22,7 +21,7 @@ ggplot(qdata, aes(time, response)) +
 
 Once you have downloaded the file and put it in your working directory, you can load the data using:
 
-```{r load-data-show, ref.label="load-data", eval=FALSE}
+```{r load-data-show, eval=FALSE}
 library("tidyverse")
 
 qdata <- readRDS("quadratic.rds")
@@ -40,7 +39,7 @@ dat <- tibble(time = 1:20,
 ## matrix of polynomial predictors
 mx <- poly(dat$time, degree = 2, simple=TRUE)
 
-## add using bind_cols() and as_tibble()
+## add using mutate()
 dat2 <- dat %>%
   mutate(t1 = mx[, 1], # first column
          t2 = mx[, 2]) # second column
