@@ -1,14 +1,14 @@
 --- 
 title: "Mixed-effects models for longitudinal data"
 author: "Dale J. Barr"
-date: "2022-03-01"
+date: "2022-03-02"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apa
 csl: include/apa.csl
 link-citations: yes
-description: "Workshop at University of Basel, March 2-3, 2022."
+description: "Workshop at University of Basel, March 3-4, 2022."
 url: "https://dalejbarr.github.io/basel-longitudinal"
 github-repo: "dalejbarr/basel-longitudinal"
 ---
@@ -19,7 +19,7 @@ github-repo: "dalejbarr/basel-longitudinal"
 
 *Dale J. Barr*
 
-**University of Basel, March 2-3, 2022**
+**University of Basel, March 3-4, 2022**
 
 ## Workshop goals {-}
 
@@ -33,14 +33,14 @@ While it will be possible to understand the conceptual content of the workshop w
 
 ## Workshop plan {-}
 
-- *Day 1* (Thursday, March 2, 2pm-6pm): **Linear regression**
+- *Day 1* (Thursday, March 3, 2pm-6pm): **Linear regression**
   - multiple regression and the General Linear Model
   - coding categorical predictor variables
   - interactions
   - model comparison and diagnostics
   - modeling trends (polynomial, generalized additive mixed models)
 
-- *Day 2* (Friday, March 3, 9am-1pm): **Mixed-effects modeling**
+- *Day 2* (Friday, March 4, 9am-1pm): **Mixed-effects modeling**
   - variance-covariance matrices
   - walkthrough of the `sleepstudy` data
   - specifying the random-effects structure

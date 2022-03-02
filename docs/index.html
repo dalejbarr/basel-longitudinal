@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Workshop Overview | Mixed-effects models for longitudinal data</title>
 <meta name="author" content="Dale J. Barr">
-<meta name="description" content="Workshop at University of Basel, March 2-3, 2022.">
+<meta name="description" content="Workshop at University of Basel, March 3-4, 2022.">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="Workshop Overview | Mixed-effects models for longitudinal data">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dalejbarr.github.io/basel-longitudinal">
-<meta property="og:description" content="Workshop at University of Basel, March 2-3, 2022.">
+<meta property="og:description" content="Workshop at University of Basel, March 3-4, 2022.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Workshop Overview | Mixed-effects models for longitudinal data">
-<meta name="twitter:description" content="Workshop at University of Basel, March 2-3, 2022.">
+<meta name="twitter:description" content="Workshop at University of Basel, March 3-4, 2022.">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -49,6 +49,9 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="active" href="index.html">Workshop Overview</a></li>
+<li><a class="" href="regression-basics.html"><span class="header-section-number">1</span> Regression basics</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">2</span> Multiple Regression</a></li>
+<li><a class="" href="interactions.html"><span class="header-section-number">3</span> Interactions</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="installing-and-configuring-rrstudio.html"><span class="header-section-number">A</span> Installing and Configuring R/RStudio</a></li>
 <li><a class="" href="coding-in-r-with-the-rstudio-ide.html"><span class="header-section-number">B</span> Coding in R with the RStudio IDE</a></li>
@@ -64,7 +67,7 @@
 <h1>Workshop Overview<a class="anchor" aria-label="anchor" href="#workshop-overview"><i class="fas fa-link"></i></a>
 </h1>
 <p><em>Dale J. Barr</em></p>
-<p><strong>University of Basel, March 2-3, 2022</strong></p>
+<p><strong>University of Basel, March 3-4, 2022</strong></p>
 <div id="workshop-goals" class="section level2 unnumbered">
 <h2>Workshop goals<a class="anchor" aria-label="anchor" href="#workshop-goals"><i class="fas fa-link"></i></a>
 </h2>
@@ -78,7 +81,7 @@
 </h2>
 <ul>
 <li>
-<em>Day 1</em> (Thursday, March 2, 2pm-6pm): <strong>Linear regression</strong>
+<em>Day 1</em> (Thursday, March 3, 2pm-6pm): <strong>Linear regression</strong>
 <ul>
 <li>multiple regression and the General Linear Model</li>
 <li>coding categorical predictor variables</li>
@@ -88,7 +91,7 @@
 </ul>
 </li>
 <li>
-<em>Day 2</em> (Friday, March 3, 9am-1pm): <strong>Mixed-effects modeling</strong>
+<em>Day 2</em> (Friday, March 4, 9am-1pm): <strong>Mixed-effects modeling</strong>
 <ul>
 <li>variance-covariance matrices</li>
 <li>walkthrough of the <code>sleepstudy</code> data</li>
@@ -119,9 +122,6 @@
 
 </div>
 </div>
-
-
-
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -240,7 +240,7 @@ $( document ).ready(function() {
 });
 </script><div class="chapter-nav">
 <div class="empty"></div>
-<div class="next"><a href="installing-and-configuring-rrstudio.html"><span class="header-section-number">A</span> Installing and Configuring R/RStudio</a></div>
+<div class="next"><a href="regression-basics.html"><span class="header-section-number">1</span> Regression basics</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -266,7 +266,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2022-03-01.</p>
+    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2022-03-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

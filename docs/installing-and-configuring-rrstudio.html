@@ -49,6 +49,9 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Workshop Overview</a></li>
+<li><a class="" href="regression-basics.html"><span class="header-section-number">1</span> Regression basics</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">2</span> Multiple Regression</a></li>
+<li><a class="" href="interactions.html"><span class="header-section-number">3</span> Interactions</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="active" href="installing-and-configuring-rrstudio.html"><span class="header-section-number">A</span> Installing and Configuring R/RStudio</a></li>
 <li><a class="" href="coding-in-r-with-the-rstudio-ide.html"><span class="header-section-number">B</span> Coding in R with the RStudio IDE</a></li>
@@ -142,7 +145,7 @@ ALWAYS REMEMBER:
 </h4>
 <p>The first thing we will install is the <a href="http://www.tidyverse.org">tidyverse</a>. The tidyverse is actually a <strong>meta-package</strong>---a collection of packages---which are useful for data processing and visualization. Depending on the speed of your computer, it might take a few minutes or maybe even 10 minutes or more for the install process to complete.</p>
 <p>To install the tidyverse, type the following code in the console and press return.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
 <p>It will first download all the packages, so you'll see a lot of text fly by that looks like this:</p>
 <pre><code>trying URL 'https://cloud.r-project.org/src/contrib/packagename_X.XX.tar.gz'
@@ -172,7 +175,7 @@ glmmTMB.cpp:863:1:   required from here</code></pre>
 <span class="header-section-number">A.3.3.2</span> Install additional packages<a class="anchor" aria-label="anchor" href="#install-additional-packages"><i class="fas fa-link"></i></a>
 </h4>
 <p>We will also need the package <strong><a href="https://github.com/lme4/lme4/">lme4</a></strong> which provides functions for mixed-effects modeling.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"lme4"</span><span class="op">)</span></code></pre></div>
 <p>This will probably take a few minutes to complete, and you'll see lots more gibberish appear in the console while the package installs.</p>
 </div>
@@ -324,7 +327,7 @@ $( document ).ready(function() {
   );
 });
 </script><div class="chapter-nav">
-<div class="prev"><a href="index.html">Workshop Overview</a></div>
+<div class="prev"><a href="interactions.html"><span class="header-section-number">3</span> Interactions</a></div>
 <div class="next"><a href="coding-in-r-with-the-rstudio-ide.html"><span class="header-section-number">B</span> Coding in R with the RStudio IDE</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -362,7 +365,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2022-03-01.</p>
+    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2022-03-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
