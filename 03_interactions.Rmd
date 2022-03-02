@@ -248,7 +248,7 @@ Is the AxB interaction significant? `r torf(TRUE)`
 `r hide("solution")`
 
 - main effect of A: **FALSE**
-- main effect of A: **FALSE**
+- main effect of B: **FALSE**
 - AxB interaction: **TRUE**
 
 Here's how to perform the analysis.

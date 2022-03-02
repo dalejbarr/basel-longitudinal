@@ -335,7 +335,7 @@ Is the AxB interaction significant? <select class='webex-select'><option value='
 
 
 - main effect of A: **FALSE**
-- main effect of A: **FALSE**
+- main effect of B: **FALSE**
 - AxB interaction: **TRUE**
 
 Here's how to perform the analysis.

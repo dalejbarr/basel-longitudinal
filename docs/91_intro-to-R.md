@@ -798,12 +798,12 @@ fortune()
 
 ```
 ## 
-## Just [use] MinGW like R [does], following the guides to the letter gets you
-## there like marked stones across a marsh. Leaving the path usually gets you at
-## best neck deep in the mire, alternatively just bubbles.
-##    -- Roger Bivand (explaining what development environment should be used to
-##       develop C on Windows (for R))
-##       R-devel (January 2007)
+## Actually, I see it as part of my job to inflict R on people who are perfectly
+## happy to have never heard of it. Happiness doesn't equal proficient and
+## efficient. In some cases the proficiency of a person serves a greater good than
+## their momentary happiness.
+##    -- Patrick Burns
+##       R-help (April 2005)
 ```
 
 Note that we will use the convention `package::function()` and `package::object` to indicate in which add-on package a function or object resides.  For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the `readr` add-on package.  If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context).  Sometimes I will make this explicit by using `base` in the place of the package name; for instance, I might refer to `rnorm()` in base as `base::rnorm()`.
@@ -894,8 +894,8 @@ rnorm(10)
 ```
 
 ```
-##  [1] -0.13283930 -0.51011348 -1.71189407 -1.38054883 -0.19833149  1.23273919
-##  [7]  0.52216826  0.09179751  1.26340482 -0.25993171
+##  [1]  1.23381441 -0.79499876 -0.01514048  0.02192222  0.13266759 -1.47212499
+##  [7]  0.62490241  0.22848807  0.75918074 -0.08961331
 ```
 
 If you want 10 numbers from a distribution with a mean of 100:
@@ -906,8 +906,8 @@ rnorm(10, 100)
 ```
 
 ```
-##  [1] 100.85478  99.78400  99.36107 100.11425  99.29171 101.01567  99.53559
-##  [8]  98.78004  99.33870 101.16159
+##  [1] 100.41941  98.78563 100.04844  98.79582  99.97259 100.47883  99.14409
+##  [8] 100.30727 101.31444  99.93011
 ```
 
 This would be an equivalent but less efficient way of calling the function:
@@ -918,8 +918,8 @@ rnorm(n = 10, mean = 100)
 ```
 
 ```
-##  [1]  99.65139 102.41613 100.87471  99.74646 100.67064 100.28126 100.91314
-##  [8]  98.67025  98.79542 100.08994
+##  [1]  99.17715  99.56915 100.07858  99.90268  98.44656 100.34937  98.26715
+##  [8]  98.91528  97.74684  99.30335
 ```
 
 We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call.  However, if we want to change the default for an argument coming later in the list, then we need to name it.  For instance, if we wanted to keep the default `mean = 0` but change the standard deviation to 100 we would do it this way:
@@ -930,8 +930,8 @@ rnorm(10, sd = 100)
 ```
 
 ```
-##  [1] -234.95277  -67.77829 -138.61087 -112.86391  -93.95674  -11.61584
-##  [7]  -18.66779   77.77623  229.04316 -227.46605
+##  [1] 104.13380  57.03688  97.78518  20.42631  16.81703 -75.22898 -71.50099
+##  [8] -47.47542  79.17899  37.68194
 ```
 
 #### Exercises {#cowsay}
@@ -1092,12 +1092,12 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Douglas Bates: If you really want to be cautious you could use an octal representation like sep="\\007" to get a character that is very unlikely to occur in a factor level.
-    ## Ed L. Cashin: I definitely want to be cautious. Instead of the bell character I think I'll use the field separator character, "\\034", just because this is the first time I've been able to use it for it's intended purpose! ;)
-    ## Douglas Bates: Yes, but with "\\034" you don't get to make obscure James Bond references :-)
-    ##  Douglas Bates and Ed L. Cashin
+    ## So it ***do not refuse*** to read the data. I do not expect some dwarf climbs out from your computer and says he will not read your data. Or is he?
+    ## ?read.table gives you more details about how to read some data.
+    ##  Petr Pikal
+    ##  after a post that said read.table() refuses to read unbalanced data
     ##  R-help
-    ##  April 2004 
+    ##  October 2004 
     ##  --------------
     ##     \
     ##       \
@@ -1129,7 +1129,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  ----- 
-    ## Wed Mar  2 04:01:19 2022 
+    ## Wed Mar  2 05:06:20 2022 
     ##  ------ 
     ##     \   
     ##      \
@@ -1158,7 +1158,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Wed Mar  2 04:01:19 2022 
+    ## Wed Mar  2 05:06:20 2022 
     ##  --------------
     ##     \
     ##       \
@@ -1204,7 +1204,7 @@ sort(y, TRUE) # set second argument to 'TRUE' so that sort order is descending
 ```
 
 ```
-## [1] 9 6 2
+## [1] 10  8  4  3
 ```
 
 
@@ -1216,7 +1216,7 @@ sort(unique(sample(1:10, 5, replace = TRUE)), TRUE)
 ```
 
 ```
-## [1] 8 7 4 3 1
+## [1] 10  6  5  3
 ```
 
 (If the above call looks confusing, it should!) The call to `sample()` is embedded within a call to `unique()` which in turn is embedded within a call to `sort()`. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function `sample()`, whose result is then passed in as the first argument to `unique(`), whose result in turn is passed in as the first argument to `sort()`; notice the second argument of sort (`TRUE`) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.
@@ -1230,7 +1230,7 @@ sample(1:10, 5, replace = TRUE) %>%
 ```
 
 ```
-## [1] 10  9  7  5  2
+## [1] 10  9  8  5  4
 ```
 
 R will calculate the result of `sample(1:10, 5, replace = TRUE)` and then pass this result as the first argument of `unique()`; then, the result of `unique()` will in turn be passed along as the first argument of `sort()` with the second argument set to `TRUE`. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.

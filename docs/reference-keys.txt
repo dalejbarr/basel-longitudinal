@@ -27,6 +27,10 @@ dataset-1
 dataset-2
 dataset-3
 coding-categorical-predictors-in-regression
+modeling-trends
+todo-resources
+activity-1
+testing-for-a-difference-in-time-varying-pattern-across-two-groups
 installing-and-configuring-rrstudio
 what-is-r
 the-rstudio-integrated-development-environment-ide
