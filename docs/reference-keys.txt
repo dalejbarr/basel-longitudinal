@@ -38,6 +38,14 @@ simulating-data-from-covariance-matrices
 a-2x2-matrix
 a-4x4-matrix
 converting-matrices-to-tibbles-and-combining-with-joins
+linear-mixed-effects-models
+resources-3
+activities-3
+data-simulation
+step-1-generate-random-effects
+step-2-make-a-tibble-with-fixed-effects-and-random-error-noise
+step-3-combine
+estimate-the-model
 installing-and-configuring-rrstudio
 what-is-r
 the-rstudio-integrated-development-environment-ide
@@ -89,7 +97,7 @@ workdir
 load
 writing-data
 reproducible-reports-with-rstudio-and-rmarkdown
-resources-3
+resources-4
 references-and-further-reading
 further-reading
 references
