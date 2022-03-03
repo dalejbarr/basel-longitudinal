@@ -56,6 +56,7 @@
 <li><a class="" href="variance-covariance-matrices.html"><span class="header-section-number">5</span> Variance-covariance matrices</a></li>
 <li><a class="" href="linear-mixed-effects-models.html"><span class="header-section-number">6</span> Linear mixed-effects models</a></li>
 <li><a class="" href="random-effects-structure.html"><span class="header-section-number">7</span> Random effects structure</a></li>
+<li><a class="" href="going-further.html"><span class="header-section-number">8</span> Going further</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="installing-and-configuring-rrstudio.html"><span class="header-section-number">A</span> Installing and Configuring R/RStudio</a></li>
 <li><a class="active" href="coding-in-r-with-the-rstudio-ide.html"><span class="header-section-number">B</span> Coding in R with the RStudio IDE</a></li>
@@ -684,11 +685,9 @@ R session. The next time you start R, you will need to run the
 <div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/fortunes/man/fortunes.html">fortune</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
-## Personally I have never regretted trying not to underestimate my own future
-## stupidity.
-##    -- Greg Snow (explaining why eval(parse(...)) is often suboptimal, answering
-##       a question triggered by the infamous fortune(106))
-##       R-help (January 2007)</code></pre>
+## Please do think hard before you tell other people what they 'should' do for you.
+##    -- Brian D. Ripley
+##       R-devel (January 2006)</code></pre>
 <p>Note that we will use the convention <code>package::function()</code> and <code>package::object</code> to indicate in which add-on package a function or object resides. For instance, if you see <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code>, that refers to the function <code>read_csv()</code> in the <code>readr</code> add-on package. If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context). Sometimes I will make this explicit by using <code>base</code> in the place of the package name; for instance, I might refer to <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> in base as <code>base::rnorm()</code>.</p>
 </div>
 <div id="help" class="section level3">
@@ -750,23 +749,23 @@ like printing to the console.</p>
 <p>If you want 10 random numbers from a distribution with mean of 0 and standard deviation, you can just use the defaults.</p>
 <div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] -0.4295001 -0.2312075  0.5813411  0.3378755 -0.4942631  1.2848238
-##  [7] -0.5852891  1.0258476  1.0177310 -0.5605164</code></pre>
+<pre><code>##  [1] -0.3161760  0.7873856  0.6809993  0.2525030  1.3192531 -0.3973679
+##  [7]  0.7504068 -0.6808195  1.1904468  0.7538612</code></pre>
 <p>If you want 10 numbers from a distribution with a mean of 100:</p>
 <div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1]  99.31280  99.75328 100.59469  99.54163 101.49585 101.03577  99.70688
-##  [8]  98.99467 100.43728  99.34337</code></pre>
+<pre><code>##  [1] 102.63501 100.34930  98.90351  98.77154 100.71002 101.07751  99.14813
+##  [8] 101.58881 100.77392 101.71783</code></pre>
 <p>This would be an equivalent but less efficient way of calling the function:</p>
 <div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] 100.25480 100.95114 101.95507  99.63142  99.60279 100.57767  98.56012
-##  [8]  99.17192 100.11679  99.79506</code></pre>
+<pre><code>##  [1]  99.67864  99.76211 100.60444  99.76635  99.60005  98.10233 100.39731
+##  [8]  99.87946 100.10954  99.62213</code></pre>
 <p>We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call. However, if we want to change the default for an argument coming later in the list, then we need to name it. For instance, if we wanted to keep the default <code>mean = 0</code> but change the standard deviation to 100 we would do it this way:</p>
 <div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] -103.99597 -117.33428 -187.21235   69.72235 -196.02490 -101.94070
-##  [7]   63.91790  285.29432   54.67080 -152.79671</code></pre>
+<pre><code>##  [1]  -75.74403  132.97950   -5.90781  -41.21301  -15.24157  145.70074
+##  [7]  121.50595   48.37434   78.62530 -114.52812</code></pre>
 </div>
 <div id="cowsay" class="section level4">
 <h4>
@@ -907,11 +906,12 @@ Solution
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"fortune"</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ##  -------------- 
-## Tom Backer Johnsen: I have just started looking at R, and are getting more and more irritated at myself for not having done that before. However, one of the things I have not found in the documentation is some way of preparing output from R for convenient formatting into something like MS Word.
-## Barry Rowlingson: Well whatever you do, don't start looking at LaTeX, because that will get you even more irritated at yourself for not having done it before.
-##  Tom Backer Johnsen and Barry Rowlingson
-##  R-help
-##  February 2006 
+## Morten Welinder: The result changes 70000 orders of magnitude right here. Ugh. This is affecting some erlang calculations of mine pretty badly.
+## Peter Dalgaard: Make that 30400 orders of magnitude (natural logs y'know)... On something that's about 300000 orders of magnitude below 1, mind you! What the devil are you calculating? The probability that a random configuration of atoms would make up the known universe?
+##  Morten Welinder and Peter Dalgaard
+##  reporting a pgamma discontinuity
+##  R-devel
+##  October 2004 
 ##  --------------
 ##     \
 ##       \
@@ -941,7 +941,7 @@ Solution
 <span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="fu">base</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/base/date.html">date</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">creature</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ##  ----- 
-## Thu Mar  3 23:05:27 2022 
+## Thu Mar  3 23:50:13 2022 
 ##  ------ 
 ##     \   
 ##      \
@@ -968,7 +968,7 @@ Solution
 <span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="fu">base</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/base/date.html">date</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">creature</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ##  -------------- 
-## Thu Mar  3 23:05:27 2022 
+## Thu Mar  3 23:50:13 2022 
 ##  --------------
 ##     \
 ##       \
@@ -1006,18 +1006,18 @@ or<br><code>Error: could not find function "%&gt;%"</code></p>
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">5</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">y</span>, <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># set second argument to 'TRUE' so that sort order is descending</span></code></pre></div>
-<pre><code>## [1] 10  9  7</code></pre>
+<pre><code>## [1] 10  7  6  4</code></pre>
 <p>While there is nothing wrong with this code, it required us to define variables x and y which we won't ever need again, and which clutter up our environment. To avoid this you could rewrite this code using nested function calls like so:</p>
 <div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">5</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 7 5 2</code></pre>
+<pre><code>## [1] 9 4 3</code></pre>
 <p>(If the above call looks confusing, it should!) The call to <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> is embedded within a call to <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> which in turn is embedded within a call to <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code>. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, whose result is then passed in as the first argument to <code>unique(</code>), whose result in turn is passed in as the first argument to <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code>; notice the second argument of sort (<code>TRUE</code>) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.</p>
 <p>This is where pipes come in. You can re-write the original code using pipes like so:</p>
 <div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">5</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] 4 2</code></pre>
+<pre><code>## [1] 9 7 5 3</code></pre>
 <p>R will calculate the result of <code><a href="https://rdrr.io/r/base/sample.html">sample(1:10, 5, replace = TRUE)</a></code> and then pass this result as the first argument of <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code>; then, the result of <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> will in turn be passed along as the first argument of <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> with the second argument set to <code>TRUE</code>. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.</p>
 <div id="exercises-2" class="section level4">
 <h4>

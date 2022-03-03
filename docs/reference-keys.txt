@@ -50,6 +50,7 @@ random-effects-structure
 resources-5
 maximal-random-effects
 re-analysis-of-keysar-barr-balin-brauner-experiment-2
+going-further
 installing-and-configuring-rrstudio
 what-is-r
 the-rstudio-integrated-development-environment-ide
@@ -104,4 +105,5 @@ reproducible-reports-with-rstudio-and-rmarkdown
 resources-6
 references-and-further-reading
 further-reading
+linear-mixed-effects-models-1
 references
