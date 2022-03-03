@@ -2,9 +2,9 @@
 
 ## Resources
 
-The app below provides an interactive introduction to bivariate distributions. Play around with it.
+[Slides](slides/05_vcov/index.html)
 
-<iframe src="https://dalejbarr.github.io/bivariate/index.html" width="420" height="620" style="border: none;"></iframe>
+[Bivariate distributions app](https://dalejbarr.github.io/bivariate/index.html)
 
 Note that the "code" pane of the app shows the code you would need to simulated data with the desired properties. This will be useful for the data simulation activity below.
 

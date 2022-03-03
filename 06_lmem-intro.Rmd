@@ -2,7 +2,9 @@
 
 ## Resources
 
-[My book chapter](https://psyteachr.github.io/stat-models-v1/introducing-linear-mixed-effects-models.html) contains in depth discussion and links to further resources.
+[Slides](slides/06_lmm1/index.html)
+
+[My book chapter](https://psyteachr.github.io/stat-models-v1/introducing-linear-mixed-effects-models.html) contains in-depth discussion and links to further resources.
 
 [A web application](https://shiny.psy.gla.ac.uk/Dale/multilevel) that allows you to simulate sleepstudy data and adjust the parameters and compare complete pooling, no pooling, and partial pooling (mixed-effects) models.
 
@@ -155,7 +157,6 @@ simdata2 <- readRDS("simdata2.rds")
 ```
 
 Now use the `lmer()` function from *`{lme4}`* to estimate the population parameters for `simdata2`. Print out the results using `summary()`.
-
 
 ```{r estimate-model, eval=FALSE, echo=FALSE}
 sleepmod <- lmer(Reaction ~ Days + (Days | Subject),

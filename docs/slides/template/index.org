@@ -9,7 +9,7 @@
 #+BEGIN_SRC R
   options(crayon.enabled = FALSE, tidyverse.quiet = TRUE)
   library("tidyverse")
-  source("theme_jetblack.R")
+  source("../theme_jetblack.R")
   theme_set(theme_jetblack(14L))
 #+END_SRC
 
