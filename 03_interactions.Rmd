@@ -2,9 +2,11 @@
 
 ## Resources
 
-- [My book chapter on interactions](https://psyteachr.github.io/stat-models-v1/interactions.html) provides an in-depth treatment
+[Slides](slides/03_intx/index.html)
 
-- [Factorial web app](https://shiny.psy.gla.ac.uk/Dale/factorial2) allows you to play around with main effects and interactions in a 2x2 factorial design
+[My book chapter on interactions](https://psyteachr.github.io/stat-models-v1/interactions.html) provides an in-depth treatment
+
+[Factorial web app](https://shiny.psy.gla.ac.uk/Dale/factorial2) allows you to play around with main effects and interactions in a 2x2 factorial design
 
 ## Activities
 

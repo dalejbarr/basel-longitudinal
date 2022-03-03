@@ -1,6 +1,8 @@
 # Modeling trends
 
-## (TODO) Resources
+## Resources
+
+[Slides](slides/04_trends/index.html)
 
 ## Activity
 

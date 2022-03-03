@@ -7,7 +7,8 @@ CFILE=$(shell find ./ -type f -regextype posix-extended -regex '$(REGEX)')
 .PHONY : book
 book : clean 
 	Rscript -e 'bookdown::render_book("index.Rmd", output_dir = "$(htarg)")'
-	zip -r docs/offline-textbook.zip docs/
+	cp -r ../slides/ docs/
+	zip -r docs/basel-longitudinal.zip docs/
 
 deploy : book
 	cp -r docs/* /var/www/html/basel-longitudinal

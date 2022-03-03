@@ -40,18 +40,17 @@ While it will be possible to understand the conceptual content of the workshop w
 ## Workshop plan {-}
 
 - *Day 1* (Thursday, March 3, 2pm-6pm): **Linear regression**
-  - multiple regression and the General Linear Model
-  - coding categorical predictor variables
+  - general linear model
+  - multiple regression
   - interactions
-  - model comparison and diagnostics
   - modeling trends (polynomial, generalized additive mixed models)
 
 - *Day 2* (Friday, March 4, 9am-1pm): **Mixed-effects modeling**
   - variance-covariance matrices
   - walkthrough of the `sleepstudy` data
   - specifying the random-effects structure
-  - dealing with autocorrelation
   - going further:
+    - dealing with autocorrelation
     - Generalized Linear Mixed Models (GLMMs) and
     - Generalized Additive Mixed Models (GAMMs)
 
@@ -59,7 +58,9 @@ While it will be possible to understand the conceptual content of the workshop w
 
 These materials comprise an **interactive textbook**. Each "chapter" contains embedded exercises as well as web applications to help participants better understand the content. The interactive content will only work if you access this material through a web browser. Printing out the material is not recommended. 
 
-It would be good to keep a local copy of these materials in case the website eventually disappears. Following the workshop, the instructor will provide you with a ZIP archive copy that you can access offline through a web browser. Just extract the files from the ZIP archive, locate the file `index.html` in the `docs` directory, and open this file using a web browser.
+It would be good to keep a local copy of these materials in case the website eventually disappears. You can [download an offline version](basel-longitudinal.zip){target="_download"} of these materials. It contains the current snapshot. Because things are likely to change while the workshop is ongoing, it would be best to wait until the end of the workshop before downloading a permanent version.
+
+Once you've downloaded the archive, just extract the files, locate the file `index.html` in the `docs` directory, and open this file using a web browser.
 
 You are free to re-use and modify the material in this textbook for your own purposes, with the stipulation that you cite the original work. Please note additional terms of the [Creative Commons CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/) governing re-use of this material.
 

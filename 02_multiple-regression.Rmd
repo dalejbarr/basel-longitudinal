@@ -2,9 +2,9 @@
 
 ## Resources
 
-- Lecture slides (TODO)
+[Slides](slides/02_multreg/index.html)
 
-- My textbook chapter on [multiple regression](https://psyteachr.github.io/stat-models-v1/multiple-regression.html) covers a lot of the material in greater depth.
+My textbook chapter on [multiple regression](https://psyteachr.github.io/stat-models-v1/multiple-regression.html) covers a lot of the material in greater depth.
 
 ## Activity
 

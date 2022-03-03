@@ -1,6 +1,8 @@
 # Regression basics
 
-- (TODO) Slides
+[Slides](slides/01_intro/index.html)
+
+[GLM web app](https://shiny.psy.gla.ac.uk/Dale/GLM)
 
 ## Activities
 
