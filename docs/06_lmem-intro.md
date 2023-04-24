@@ -6,7 +6,7 @@
 
 [My book chapter](https://psyteachr.github.io/stat-models-v1/introducing-linear-mixed-effects-models.html) contains in-depth discussion and links to further resources.
 
-[A web application](https://shiny.psy.gla.ac.uk/Dale/multilevel) that allows you to simulate sleepstudy data and adjust the parameters and compare complete pooling, no pooling, and partial pooling (mixed-effects) models.
+[A web application](https://rstudio-connect.psy.gla.ac.uk/multilevel/) that allows you to simulate sleepstudy data and adjust the parameters and compare complete pooling, no pooling, and partial pooling (mixed-effects) models.
 
 ## Activities
 
@@ -113,7 +113,7 @@ This should be a tibble with 180 observations (18 subjects, observed over 10 day
 ##  8 1           7      310        4   7.09 
 ##  9 1           8      310        4  -4.84 
 ## 10 1           9      310        4  38.7  
-## # … with 170 more rows
+## # ℹ 170 more rows
 ```
 
 
@@ -196,7 +196,7 @@ simdata
 ##  8 1           7     595.
 ##  9 1           8     621.
 ## 10 1           9     702.
-## # … with 170 more rows
+## # ℹ 170 more rows
 ```
 
 

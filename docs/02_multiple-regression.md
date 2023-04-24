@@ -121,7 +121,8 @@ stars
 ##  8    24    22         1.75           2.45         1.43     1.2  3.12  1.38
 ##  9    26    22         1              1            1        1    1.38  1   
 ## 10    29    16         1.5            2.64         1.29     1    2.88  1.25
-## # … with 40 more rows, and 1 more variable: software <chr>
+## # ℹ 40 more rows
+## # ℹ 1 more variable: software <chr>
 ```
 
 
@@ -162,17 +163,92 @@ stars %>%
 ## Missing treated using: 'pairwise.complete.obs'
 ```
 
-
-
-|           term| grade| Ask_For_Help| Interpretation| Self_Concept| Teacher| Test| Worth|
-|--------------:|-----:|------------:|--------------:|------------:|-------:|----:|-----:|
-|          grade|      |             |               |             |        |     |      |
-|   Ask_For_Help|  -.35|             |               |             |        |     |      |
-| Interpretation|  -.42|          .62|               |             |        |     |      |
-|   Self_Concept|  -.59|          .60|            .58|             |        |     |      |
-|        Teacher|  -.14|          .42|            .45|          .41|        |     |      |
-|           Test|  -.46|          .69|            .65|          .59|     .37|     |      |
-|          Worth|  -.34|          .47|            .55|          .70|     .46|  .47|      |
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> term </th>
+   <th style="text-align:right;"> grade </th>
+   <th style="text-align:right;"> Ask_For_Help </th>
+   <th style="text-align:right;"> Interpretation </th>
+   <th style="text-align:right;"> Self_Concept </th>
+   <th style="text-align:right;"> Teacher </th>
+   <th style="text-align:right;"> Test </th>
+   <th style="text-align:right;"> Worth </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> grade </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> Ask_For_Help </td>
+   <td style="text-align:right;"> -.35 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> Interpretation </td>
+   <td style="text-align:right;"> -.42 </td>
+   <td style="text-align:right;"> .62 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> Self_Concept </td>
+   <td style="text-align:right;"> -.59 </td>
+   <td style="text-align:right;"> .60 </td>
+   <td style="text-align:right;"> .58 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> Teacher </td>
+   <td style="text-align:right;"> -.14 </td>
+   <td style="text-align:right;"> .42 </td>
+   <td style="text-align:right;"> .45 </td>
+   <td style="text-align:right;"> .41 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> Test </td>
+   <td style="text-align:right;"> -.46 </td>
+   <td style="text-align:right;"> .69 </td>
+   <td style="text-align:right;"> .65 </td>
+   <td style="text-align:right;"> .59 </td>
+   <td style="text-align:right;"> .37 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> Worth </td>
+   <td style="text-align:right;"> -.34 </td>
+   <td style="text-align:right;"> .47 </td>
+   <td style="text-align:right;"> .55 </td>
+   <td style="text-align:right;"> .70 </td>
+   <td style="text-align:right;"> .46 </td>
+   <td style="text-align:right;"> .47 </td>
+   <td style="text-align:right;">  </td>
+  </tr>
+</tbody>
+</table>
 
 
 </div>

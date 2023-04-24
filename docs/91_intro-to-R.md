@@ -798,9 +798,11 @@ fortune()
 
 ```
 ## 
-## Please do think hard before you tell other people what they 'should' do for you.
-##    -- Brian D. Ripley
-##       R-devel (January 2006)
+## Michael Watson: Hopefully this one isn't in the manual or I am about to get
+## shot :-S
+## Peter Dalgaard: *Kapow*...
+##    -- Michael Watson and Peter Dalgaard (question on axis())
+##       R-help (February 2006)
 ```
 
 Note that we will use the convention `package::function()` and `package::object` to indicate in which add-on package a function or object resides.  For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the `readr` add-on package.  If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context).  Sometimes I will make this explicit by using `base` in the place of the package name; for instance, I might refer to `rnorm()` in base as `base::rnorm()`.
@@ -891,8 +893,8 @@ rnorm(10)
 ```
 
 ```
-##  [1] -0.3161760  0.7873856  0.6809993  0.2525030  1.3192531 -0.3973679
-##  [7]  0.7504068 -0.6808195  1.1904468  0.7538612
+##  [1]  1.0847309  0.8294717  1.1325919  2.4144119  1.5189512  0.4116223
+##  [7] -0.6659313  1.6244298  0.8375750  0.3926430
 ```
 
 If you want 10 numbers from a distribution with a mean of 100:
@@ -903,8 +905,8 @@ rnorm(10, 100)
 ```
 
 ```
-##  [1] 102.63501 100.34930  98.90351  98.77154 100.71002 101.07751  99.14813
-##  [8] 101.58881 100.77392 101.71783
+##  [1]  99.69674  99.66680 100.28170 100.10401 100.24251  98.50356 100.61571
+##  [8] 100.98197 101.18132 101.34773
 ```
 
 This would be an equivalent but less efficient way of calling the function:
@@ -915,8 +917,8 @@ rnorm(n = 10, mean = 100)
 ```
 
 ```
-##  [1]  99.67864  99.76211 100.60444  99.76635  99.60005  98.10233 100.39731
-##  [8]  99.87946 100.10954  99.62213
+##  [1] 101.35388 101.59815 100.45419  99.93911 100.08454 100.13152  99.95648
+##  [8] 100.03925  98.44206 100.67980
 ```
 
 We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call.  However, if we want to change the default for an argument coming later in the list, then we need to name it.  For instance, if we wanted to keep the default `mean = 0` but change the standard deviation to 100 we would do it this way:
@@ -927,8 +929,8 @@ rnorm(10, sd = 100)
 ```
 
 ```
-##  [1]  -75.74403  132.97950   -5.90781  -41.21301  -15.24157  145.70074
-##  [7]  121.50595   48.37434   78.62530 -114.52812
+##  [1] -20.63769 -47.76632  96.62185  55.35052  29.08400  21.85750 -31.80435
+##  [8]  64.03775  31.49409 157.71607
 ```
 
 #### Exercises {#cowsay}
@@ -1089,12 +1091,11 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Morten Welinder: The result changes 70000 orders of magnitude right here. Ugh. This is affecting some erlang calculations of mine pretty badly.
-    ## Peter Dalgaard: Make that 30400 orders of magnitude (natural logs y'know)... On something that's about 300000 orders of magnitude below 1, mind you! What the devil are you calculating? The probability that a random configuration of atoms would make up the known universe?
-    ##  Morten Welinder and Peter Dalgaard
-    ##  reporting a pgamma discontinuity
-    ##  R-devel
-    ##  October 2004 
+    ## John Miller: How do I prevent google search to post my questions asked here??
+    ## Martin Maechler: you don't: R-help is famous and celebrity can't be gotten rid off ;-)
+    ##  John Miller and Martin Maechler
+    ##  R-help
+    ##  June 2004 
     ##  --------------
     ##     \
     ##       \
@@ -1126,7 +1127,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  ----- 
-    ## Thu Mar  3 23:50:13 2022 
+    ## Mon Apr 24 11:10:43 2023 
     ##  ------ 
     ##     \   
     ##      \
@@ -1155,7 +1156,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Thu Mar  3 23:50:13 2022 
+    ## Mon Apr 24 11:10:43 2023 
     ##  --------------
     ##     \
     ##       \
@@ -1201,7 +1202,7 @@ sort(y, TRUE) # set second argument to 'TRUE' so that sort order is descending
 ```
 
 ```
-## [1] 10  7  6  4
+## [1] 9 5 4 1
 ```
 
 
@@ -1213,7 +1214,7 @@ sort(unique(sample(1:10, 5, replace = TRUE)), TRUE)
 ```
 
 ```
-## [1] 9 4 3
+## [1] 8 7 6 3
 ```
 
 (If the above call looks confusing, it should!) The call to `sample()` is embedded within a call to `unique()` which in turn is embedded within a call to `sort()`. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function `sample()`, whose result is then passed in as the first argument to `unique(`), whose result in turn is passed in as the first argument to `sort()`; notice the second argument of sort (`TRUE`) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.
@@ -1227,7 +1228,7 @@ sample(1:10, 5, replace = TRUE) %>%
 ```
 
 ```
-## [1] 9 7 5 3
+## [1] 9 4 2
 ```
 
 R will calculate the result of `sample(1:10, 5, replace = TRUE)` and then pass this result as the first argument of `unique()`; then, the result of `unique()` will in turn be passed along as the first argument of `sort()` with the second argument set to `TRUE`. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.
@@ -1384,20 +1385,21 @@ starwars
 
 ```
 ## # A tibble: 87 × 14
-##    name    height  mass hair_color  skin_color eye_color birth_year sex   gender
-##    <chr>    <int> <dbl> <chr>       <chr>      <chr>          <dbl> <chr> <chr> 
-##  1 Luke S…    172    77 blond       fair       blue            19   male  mascu…
-##  2 C-3PO      167    75 <NA>        gold       yellow         112   none  mascu…
-##  3 R2-D2       96    32 <NA>        white, bl… red             33   none  mascu…
-##  4 Darth …    202   136 none        white      yellow          41.9 male  mascu…
-##  5 Leia O…    150    49 brown       light      brown           19   fema… femin…
-##  6 Owen L…    178   120 brown, grey light      blue            52   male  mascu…
-##  7 Beru W…    165    75 brown       light      blue            47   fema… femin…
-##  8 R5-D4       97    32 <NA>        white, red red             NA   none  mascu…
-##  9 Biggs …    183    84 black       light      brown           24   male  mascu…
-## 10 Obi-Wa…    182    77 auburn, wh… fair       blue-gray       57   male  mascu…
-## # … with 77 more rows, and 5 more variables: homeworld <chr>, species <chr>,
-## #   films <list>, vehicles <list>, starships <list>
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    <chr>     <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 C-3PO       167    75 <NA>       gold       yellow         112   none  mascu…
+##  3 R2-D2        96    32 <NA>       white, bl… red             33   none  mascu…
+##  4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  8 R5-D4        97    32 <NA>       white, red red             NA   none  mascu…
+##  9 Biggs D…    183    84 black      light      brown           24   male  mascu…
+## 10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+## # ℹ 77 more rows
+## # ℹ 5 more variables: homeworld <chr>, species <chr>, films <list>,
+## #   vehicles <list>, starships <list>
 ```
 
 You can see that this is a 87 rows by 14 column table, and we can only see the first 10 rows and first 8 columns.

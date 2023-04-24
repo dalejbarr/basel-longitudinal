@@ -7,7 +7,7 @@
 <title>Chapter 2 Multiple Regression | Mixed-effects models for longitudinal data</title>
 <meta name="author" content="Dale J. Barr">
 <meta name="description" content="2.1 Resources Slides My textbook chapter on multiple regression covers a lot of the material in greater depth.  2.2 Activity For this set of exercises, you're going to be working with some real...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Multiple Regression | Mixed-effects models for longitudinal data">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dalejbarr.github.io/basel-longitudinal/multiple-regression.html">
@@ -17,14 +17,18 @@
 <meta name="twitter:description" content="2.1 Resources Slides My textbook chapter on multiple regression covers a lot of the material in greater depth.  2.2 Activity For this set of exercises, you're going to be working with some real...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
     gtag('config', 'G-6NP3MF25W3');
-  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -380,14 +384,14 @@ Click here to view the 51 STARS items
 solution
 </button>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/tidymodels/corrr">"corrr"</a></span><span class="op">)</span>
-
-<span class="va">stars</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/stars-wide.csv"</span>,
-                  col_types <span class="op">=</span> <span class="st">"iiddddddc"</span><span class="op">)</span>
-
-<span class="co">## remember to look at your data before proceeding!</span>
-<span class="va">stars</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/tidymodels/corrr">"corrr"</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">stars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/stars-wide.csv"</span>,</span>
+<span>                  col_types <span class="op">=</span> <span class="st">"iiddddddc"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## remember to look at your data before proceeding!</span></span>
+<span><span class="va">stars</span></span></code></pre></div>
 <pre><code>## # A tibble: 50 × 9
 ##       id grade Ask_For_Help Interpretation Self_Concept Teacher  Test Worth
 ##    &lt;int&gt; &lt;int&gt;        &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -401,7 +405,8 @@ solution
 ##  8    24    22         1.75           2.45         1.43     1.2  3.12  1.38
 ##  9    26    22         1              1            1        1    1.38  1   
 ## 10    29    16         1.5            2.64         1.29     1    2.88  1.25
-## # … with 40 more rows, and 1 more variable: software &lt;chr&gt;</code></pre>
+## # ℹ 40 more rows
+## # ℹ 1 more variable: software &lt;chr&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -409,7 +414,7 @@ solution
 <h3>
 <span class="header-section-number">2.3.2</span> Create a correlation matrix<a class="anchor" aria-label="anchor" href="#create-a-correlation-matrix"><i class="fas fa-link"></i></a>
 </h3>
-<div class="try">
+<p>:::{.try}</p>
 <p>Create a correlation matrix using <code><a href="https://corrr.tidymodels.org/reference/correlate.html">corrr::correlate()</a></code> showing the bivariate correlation between your response variable (<code>grade</code>) and the six subscale means.</p>
 <div class="webex-solution">
 <button>
@@ -422,101 +427,201 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">stars</span> <span class="op">%&gt;%</span>
-  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">software</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://corrr.tidymodels.org/reference/correlate.html">correlate</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://corrr.tidymodels.org/reference/shave.html">shave</a></span><span class="op">(</span>upper <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://corrr.tidymodels.org/reference/fashion.html">fashion</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"r"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">stars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">software</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://corrr.tidymodels.org/reference/correlate.html">correlate</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://corrr.tidymodels.org/reference/shave.html">shave</a></span><span class="op">(</span>upper <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://corrr.tidymodels.org/reference/fashion.html">fashion</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"r"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Correlation method: 'pearson'
 ## Missing treated using: 'pairwise.complete.obs'</code></pre>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="right">term</th>
-<th align="right">grade</th>
-<th align="right">Ask_For_Help</th>
-<th align="right">Interpretation</th>
-<th align="right">Self_Concept</th>
-<th align="right">Teacher</th>
-<th align="right">Test</th>
-<th align="right">Worth</th>
+<thead><tr>
+<th style="text-align:right;">
+term
+</th>
+<th style="text-align:right;">
+grade
+</th>
+<th style="text-align:right;">
+Ask_For_Help
+</th>
+<th style="text-align:right;">
+Interpretation
+</th>
+<th style="text-align:right;">
+Self_Concept
+</th>
+<th style="text-align:right;">
+Teacher
+</th>
+<th style="text-align:right;">
+Test
+</th>
+<th style="text-align:right;">
+Worth
+</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="right">grade</td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
+<tr>
+<td style="text-align:right;">
+grade
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
-<tr class="even">
-<td align="right">Ask_For_Help</td>
-<td align="right">-.35</td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
+<tr>
+<td style="text-align:right;">
+Ask_For_Help
+</td>
+<td style="text-align:right;">
+-.35
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
-<tr class="odd">
-<td align="right">Interpretation</td>
-<td align="right">-.42</td>
-<td align="right">.62</td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
+<tr>
+<td style="text-align:right;">
+Interpretation
+</td>
+<td style="text-align:right;">
+-.42
+</td>
+<td style="text-align:right;">
+.62
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
-<tr class="even">
-<td align="right">Self_Concept</td>
-<td align="right">-.59</td>
-<td align="right">.60</td>
-<td align="right">.58</td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
+<tr>
+<td style="text-align:right;">
+Self_Concept
+</td>
+<td style="text-align:right;">
+-.59
+</td>
+<td style="text-align:right;">
+.60
+</td>
+<td style="text-align:right;">
+.58
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
-<tr class="odd">
-<td align="right">Teacher</td>
-<td align="right">-.14</td>
-<td align="right">.42</td>
-<td align="right">.45</td>
-<td align="right">.41</td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
+<tr>
+<td style="text-align:right;">
+Teacher
+</td>
+<td style="text-align:right;">
+-.14
+</td>
+<td style="text-align:right;">
+.42
+</td>
+<td style="text-align:right;">
+.45
+</td>
+<td style="text-align:right;">
+.41
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
-<tr class="even">
-<td align="right">Test</td>
-<td align="right">-.46</td>
-<td align="right">.69</td>
-<td align="right">.65</td>
-<td align="right">.59</td>
-<td align="right">.37</td>
-<td align="right"></td>
-<td align="right"></td>
+<tr>
+<td style="text-align:right;">
+Test
+</td>
+<td style="text-align:right;">
+-.46
+</td>
+<td style="text-align:right;">
+.69
+</td>
+<td style="text-align:right;">
+.65
+</td>
+<td style="text-align:right;">
+.59
+</td>
+<td style="text-align:right;">
+.37
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
-<tr class="odd">
-<td align="right">Worth</td>
-<td align="right">-.34</td>
-<td align="right">.47</td>
-<td align="right">.55</td>
-<td align="right">.70</td>
-<td align="right">.46</td>
-<td align="right">.47</td>
-<td align="right"></td>
+<tr>
+<td style="text-align:right;">
+Worth
+</td>
+<td style="text-align:right;">
+-.34
+</td>
+<td style="text-align:right;">
+.47
+</td>
+<td style="text-align:right;">
+.55
+</td>
+<td style="text-align:right;">
+.70
+</td>
+<td style="text-align:right;">
+.46
+</td>
+<td style="text-align:right;">
+.47
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
 </tbody>
 </table></div>
 </div>
-</div>
+<p>:::</p>
 </div>
 <div id="visualize-all-pairwise-correlations" class="section level3">
 <h3>
@@ -535,9 +640,9 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">stars</span> <span class="op">%&gt;%</span>
-  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">software</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">stars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">software</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="02_multiple-regression_files/figure-html/pairs-1.png" width="100%" style="display: block; margin: auto;"></div>
 </div>
 </div>
@@ -559,11 +664,11 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">Ask_For_Help</span> <span class="op">+</span> <span class="va">Interpretation</span> <span class="op">+</span> <span class="va">Self_Concept</span> <span class="op">+</span>
-              <span class="va">Teacher</span> <span class="op">+</span> <span class="va">Test</span> <span class="op">+</span> <span class="va">Worth</span>,
-            data <span class="op">=</span> <span class="va">stars</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">Ask_For_Help</span> <span class="op">+</span> <span class="va">Interpretation</span> <span class="op">+</span> <span class="va">Self_Concept</span> <span class="op">+</span></span>
+<span>              <span class="va">Teacher</span> <span class="op">+</span> <span class="va">Test</span> <span class="op">+</span> <span class="va">Worth</span>,</span>
+<span>            data <span class="op">=</span> <span class="va">stars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = grade ~ Ask_For_Help + Interpretation + Self_Concept + 
@@ -611,25 +716,25 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## two ways to do this:</span>
-<span class="co">## 1. just type it all out</span>
-<span class="va">zscores1</span> <span class="op">&lt;-</span> <span class="va">stars</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>Ask_For_Help <span class="op">=</span> <span class="op">(</span><span class="va">Ask_For_Help</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Ask_For_Help</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Ask_For_Help</span><span class="op">)</span>,
-         Interpretation <span class="op">=</span> <span class="op">(</span><span class="va">Interpretation</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Interpretation</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Interpretation</span><span class="op">)</span>,
-         Self_Concept <span class="op">=</span> <span class="op">(</span><span class="va">Self_Concept</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Self_Concept</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Self_Concept</span><span class="op">)</span>,
-         Teacher <span class="op">=</span> <span class="op">(</span><span class="va">Teacher</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Teacher</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Teacher</span><span class="op">)</span>,
-         Test <span class="op">=</span> <span class="op">(</span><span class="va">Test</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Test</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Test</span><span class="op">)</span>,
-         Worth <span class="op">=</span> <span class="op">(</span><span class="va">Worth</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Worth</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Worth</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">## 2 (advanced). use 'scoping' variant of mutate; see ?mutate_at</span>
-<span class="va">zscores1</span> <span class="op">&lt;-</span> <span class="va">stars</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate_at</span><span class="op">(</span><span class="fu">vars</span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">grade</span>, <span class="op">-</span><span class="va">software</span><span class="op">)</span>, <span class="op">~</span> <span class="op">(</span><span class="va">.x</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">model_z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">Ask_For_Help</span> <span class="op">+</span> <span class="va">Interpretation</span> <span class="op">+</span> <span class="va">Self_Concept</span> <span class="op">+</span>
-                <span class="va">Teacher</span> <span class="op">+</span> <span class="va">Test</span> <span class="op">+</span> <span class="va">Worth</span>,
-              data <span class="op">=</span> <span class="va">zscores1</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_z</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## two ways to do this:</span></span>
+<span><span class="co">## 1. just type it all out</span></span>
+<span><span class="va">zscores1</span> <span class="op">&lt;-</span> <span class="va">stars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Ask_For_Help <span class="op">=</span> <span class="op">(</span><span class="va">Ask_For_Help</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Ask_For_Help</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Ask_For_Help</span><span class="op">)</span>,</span>
+<span>         Interpretation <span class="op">=</span> <span class="op">(</span><span class="va">Interpretation</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Interpretation</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Interpretation</span><span class="op">)</span>,</span>
+<span>         Self_Concept <span class="op">=</span> <span class="op">(</span><span class="va">Self_Concept</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Self_Concept</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Self_Concept</span><span class="op">)</span>,</span>
+<span>         Teacher <span class="op">=</span> <span class="op">(</span><span class="va">Teacher</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Teacher</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Teacher</span><span class="op">)</span>,</span>
+<span>         Test <span class="op">=</span> <span class="op">(</span><span class="va">Test</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Test</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Test</span><span class="op">)</span>,</span>
+<span>         Worth <span class="op">=</span> <span class="op">(</span><span class="va">Worth</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Worth</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Worth</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## 2 (advanced). use 'scoping' variant of mutate; see ?mutate_at</span></span>
+<span><span class="va">zscores1</span> <span class="op">&lt;-</span> <span class="va">stars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">grade</span>, <span class="op">-</span><span class="va">software</span><span class="op">)</span>, <span class="op">~</span> <span class="op">(</span><span class="va">.x</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">model_z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">Ask_For_Help</span> <span class="op">+</span> <span class="va">Interpretation</span> <span class="op">+</span> <span class="va">Self_Concept</span> <span class="op">+</span></span>
+<span>                <span class="va">Teacher</span> <span class="op">+</span> <span class="va">Test</span> <span class="op">+</span> <span class="va">Worth</span>,</span>
+<span>              data <span class="op">=</span> <span class="va">zscores1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_z</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = grade ~ Ask_For_Help + Interpretation + Self_Concept + 
@@ -674,14 +779,14 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## we are doing it with the standardized scores;</span>
-<span class="co">## could also do it using the unstandardized scores and would get the same result</span>
-<span class="va">sc_only</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">Self_Concept</span>, <span class="va">zscores1</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">sc_only</span>, <span class="va">model_z</span><span class="op">)</span>
-<span class="co">## no evidence for improvement by adding other 5 predictors!</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sc_only</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## we are doing it with the standardized scores;</span></span>
+<span><span class="co">## could also do it using the unstandardized scores and would get the same result</span></span>
+<span><span class="va">sc_only</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">Self_Concept</span>, <span class="va">zscores1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">sc_only</span>, <span class="va">model_z</span><span class="op">)</span></span>
+<span><span class="co">## no evidence for improvement by adding other 5 predictors!</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sc_only</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: grade ~ Self_Concept
@@ -722,9 +827,9 @@ solution
 solution
 </button>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">model_gxs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">software</span>, <span class="va">stars</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_gxs</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">model_gxs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">grade</span> <span class="op">~</span> <span class="va">software</span>, <span class="va">stars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_gxs</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = grade ~ software, data = stars)
@@ -902,7 +1007,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2022-03-03.</p>
+    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2023-04-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -915,7 +1020,7 @@ $( document ).ready(function() {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

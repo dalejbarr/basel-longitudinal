@@ -7,7 +7,7 @@
 <title>Chapter 6 Linear mixed-effects models | Mixed-effects models for longitudinal data</title>
 <meta name="author" content="Dale J. Barr">
 <meta name="description" content="6.1 Resources Slides My book chapter contains in-depth discussion and links to further resources. A web application that allows you to simulate sleepstudy data and adjust the parameters and...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Linear mixed-effects models | Mixed-effects models for longitudinal data">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://dalejbarr.github.io/basel-longitudinal/linear-mixed-effects-models.html">
@@ -17,14 +17,18 @@
 <meta name="twitter:description" content="6.1 Resources Slides My book chapter contains in-depth discussion and links to further resources. A web application that allows you to simulate sleepstudy data and adjust the parameters and...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
     gtag('config', 'G-6NP3MF25W3');
-  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -78,7 +82,7 @@
 </h2>
 <p><a href="slides/06_lmm1/index.html">Slides</a></p>
 <p><a href="https://psyteachr.github.io/stat-models-v1/introducing-linear-mixed-effects-models.html">My book chapter</a> contains in-depth discussion and links to further resources.</p>
-<p><a href="https://shiny.psy.gla.ac.uk/Dale/multilevel">A web application</a> that allows you to simulate sleepstudy data and adjust the parameters and compare complete pooling, no pooling, and partial pooling (mixed-effects) models.</p>
+<p><a href="https://rstudio-connect.psy.gla.ac.uk/multilevel/">A web application</a> that allows you to simulate sleepstudy data and adjust the parameters and compare complete pooling, no pooling, and partial pooling (mixed-effects) models.</p>
 </div>
 <div id="activities-3" class="section level2">
 <h2>
@@ -113,10 +117,10 @@
 </ol>
 <p><strong>Setting up.</strong> Load tidyverse, lme4, and set the random number seed.</p>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/lme4/lme4/">"lme4"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">62</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/lme4/lme4/">"lme4"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">62</span><span class="op">)</span></span></code></pre></div>
 <div id="step-1-generate-random-effects" class="section level4">
 <h4>
 <span class="header-section-number">6.2.1.1</span> Step 1: Generate random effects<a class="anchor" aria-label="anchor" href="#step-1-generate-random-effects"><i class="fas fa-link"></i></a>
@@ -134,12 +138,12 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">covmx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span><span class="op">^</span><span class="fl">2</span>, <span class="fl">.9</span> <span class="op">*</span> <span class="fl">30</span> <span class="op">*</span> <span class="fl">33</span>,
-                  <span class="fl">.9</span> <span class="op">*</span> <span class="fl">30</span> <span class="op">*</span> <span class="fl">33</span>, <span class="fl">33</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="co">## 'rmx' should be an 18x2 matrix</span>
-<span class="va">rmx</span> <span class="op">&lt;-</span> <span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/mvrnorm.html">mvrnorm</a></span><span class="op">(</span><span class="fl">18</span>, mu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>S0i <span class="op">=</span> <span class="fl">0</span>, S1i <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,
-                     Sigma <span class="op">=</span> <span class="va">covmx</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">covmx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span><span class="op">^</span><span class="fl">2</span>, <span class="fl">.9</span> <span class="op">*</span> <span class="fl">30</span> <span class="op">*</span> <span class="fl">33</span>,</span>
+<span>                  <span class="fl">.9</span> <span class="op">*</span> <span class="fl">30</span> <span class="op">*</span> <span class="fl">33</span>, <span class="fl">33</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## 'rmx' should be an 18x2 matrix</span></span>
+<span><span class="va">rmx</span> <span class="op">&lt;-</span> <span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/mvrnorm.html">mvrnorm</a></span><span class="op">(</span><span class="fl">18</span>, mu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>S0i <span class="op">=</span> <span class="fl">0</span>, S1i <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
+<span>                     Sigma <span class="op">=</span> <span class="va">covmx</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -163,7 +167,7 @@ solution
 ##  8 1           7      310        4   7.09 
 ##  9 1           8      310        4  -4.84 
 ## 10 1           9      310        4  38.7  
-## # … with 170 more rows</code></pre>
+## # ℹ 170 more rows</code></pre>
 <div class="webex-solution">
 <button>
 hint
@@ -175,11 +179,11 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">obs</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span>Subject <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fl">18</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,
-              Days <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">9</span>, <span class="fl">18</span><span class="op">)</span>,
-              gamma_00 <span class="op">=</span> <span class="fl">310</span>,  <span class="co"># replace with correct values</span>
-              gamma_10 <span class="op">=</span> <span class="fl">4</span>,  <span class="co"># replace with correct values</span>
-              e_ij <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">18</span> <span class="op">*</span> <span class="fl">10</span>, <span class="fl">0</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span>      <span class="co"># replace with correct values</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">obs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>Subject <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fl">18</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>              Days <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">9</span>, <span class="fl">18</span><span class="op">)</span>,</span>
+<span>              gamma_00 <span class="op">=</span> <span class="fl">310</span>,  <span class="co"># replace with correct values</span></span>
+<span>              gamma_10 <span class="op">=</span> <span class="fl">4</span>,  <span class="co"># replace with correct values</span></span>
+<span>              e_ij <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">18</span> <span class="op">*</span> <span class="fl">10</span>, <span class="fl">0</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span>      <span class="co"># replace with correct values</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -206,15 +210,15 @@ hint
 solution
 </button>
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">rmx_tbl</span> <span class="op">&lt;-</span> <span class="va">rmx</span> <span class="op">%&gt;%</span>
-  <span class="fu">as_tibble</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>Subject <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">18</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">simdata</span> <span class="op">&lt;-</span> <span class="fu">inner_join</span><span class="op">(</span><span class="va">obs</span>, <span class="va">rmx_tbl</span>, <span class="st">"Subject"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>Reaction <span class="op">=</span> <span class="va">gamma_00</span> <span class="op">+</span> <span class="va">S0i</span> <span class="op">+</span> <span class="op">(</span><span class="va">gamma_10</span> <span class="op">+</span> <span class="va">S1i</span><span class="op">)</span> <span class="op">*</span> <span class="va">Days</span> <span class="op">+</span> <span class="va">e_ij</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">select</span><span class="op">(</span><span class="va">Subject</span>, <span class="va">Days</span>, <span class="va">Reaction</span><span class="op">)</span>
-
-<span class="va">simdata</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">rmx_tbl</span> <span class="op">&lt;-</span> <span class="va">rmx</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Subject <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">18</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">simdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">obs</span>, <span class="va">rmx_tbl</span>, <span class="st">"Subject"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Reaction <span class="op">=</span> <span class="va">gamma_00</span> <span class="op">+</span> <span class="va">S0i</span> <span class="op">+</span> <span class="op">(</span><span class="va">gamma_10</span> <span class="op">+</span> <span class="va">S1i</span><span class="op">)</span> <span class="op">*</span> <span class="va">Days</span> <span class="op">+</span> <span class="va">e_ij</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Subject</span>, <span class="va">Days</span>, <span class="va">Reaction</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">simdata</span></span></code></pre></div>
 <pre><code>## # A tibble: 180 × 3
 ##    Subject  Days Reaction
 ##    &lt;fct&gt;   &lt;int&gt;    &lt;dbl&gt;
@@ -228,7 +232,7 @@ solution
 ##  8 1           7     595.
 ##  9 1           8     621.
 ## 10 1           9     702.
-## # … with 170 more rows</code></pre>
+## # ℹ 170 more rows</code></pre>
 </div>
 </div>
 </div>
@@ -241,17 +245,17 @@ solution
 <p>Now we're going to try to recover the original population parameters from the sample. Let's see how close we get.</p>
 <p>Just so we're all working with the same data, let's work with some different data <code>simdata2</code> that you'll need to <a href="data/simdata2.rds" target="_download">download</a>, place in your working directory, and import using the code below.</p>
 <div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">simdata2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"simdata2.rds"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">simdata2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"simdata2.rds"</span><span class="op">)</span></span></code></pre></div>
 <p>Now use the <code><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer()</a></code> function from <em><a href="https://github.com/lme4/lme4/">lme4</a></em> to estimate the population parameters for <code>simdata2</code>. Print out the results using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
 <div class="webex-solution">
 <button>
 solution
 </button>
 <div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sleepmod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">Reaction</span> <span class="op">~</span> <span class="va">Days</span> <span class="op">+</span> <span class="op">(</span><span class="va">Days</span> <span class="op">|</span> <span class="va">Subject</span><span class="op">)</span>,
-                 data <span class="op">=</span> <span class="va">simdata2</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sleepmod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">sleepmod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">Reaction</span> <span class="op">~</span> <span class="va">Days</span> <span class="op">+</span> <span class="op">(</span><span class="va">Days</span> <span class="op">|</span> <span class="va">Subject</span><span class="op">)</span>,</span>
+<span>                 data <span class="op">=</span> <span class="va">simdata2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sleepmod</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML ['lmerMod']
 ## Formula: Reaction ~ Days + (Days | Subject)
 ##    Data: simdata2
@@ -472,7 +476,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2022-03-03.</p>
+    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2023-04-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -485,7 +489,7 @@ $( document ).ready(function() {
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

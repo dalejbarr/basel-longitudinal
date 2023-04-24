@@ -4,7 +4,7 @@
 
 [Slides](slides/07_simgen/index.html)
 
-[Crossed web app](https://shiny.psy.gla.ac.uk/Dale/crossed) demonstrating random effects for a simple crossed design
+[Crossed web app](https://rstudio-connect.psy.gla.ac.uk/crossed/) demonstrating random effects for a simple crossed design
 
 ## Maximal random effects
 

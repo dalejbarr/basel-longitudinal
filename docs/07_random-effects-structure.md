@@ -4,7 +4,7 @@
 
 [Slides](slides/07_simgen/index.html)
 
-[Crossed web app](https://shiny.psy.gla.ac.uk/Dale/crossed) demonstrating random effects for a simple crossed design
+[Crossed web app](https://rstudio-connect.psy.gla.ac.uk/crossed/) demonstrating random effects for a simple crossed design
 
 ## Maximal random effects
 
@@ -221,7 +221,7 @@ kbbb2 %>%
 ##  8 S05   RN      E         5
 ##  9 S06   EX      C         5
 ## 10 S06   EX      E         5
-## # … with 70 more rows
+## # ℹ 70 more rows
 ```
 
 Need a by-subject random slope for `cond`.
@@ -248,7 +248,7 @@ kbbb2 %>%
 ##  8 brush  RN      E        10
 ##  9 cards  EX      C        10
 ## 10 cards  EX      E        10
-## # … with 30 more rows
+## # ℹ 30 more rows
 ```
 
 Need by-stimulus random slopes for `psource`, `cond`, and their interaction.
@@ -262,7 +262,7 @@ ff_mod <- lmer(firstfix ~ PS * C + (C | subj) + (PS * C | object), kbbb2,
 ```
 
 ```
-## boundary (singular) fit: see ?isSingular
+## boundary (singular) fit: see help('isSingular')
 ```
 
 ```r
@@ -301,7 +301,7 @@ summary(ff_mod) %>% print(corr = FALSE)
 ## C             1049.0      475.8   2.205
 ## PS:C           197.3      561.6   0.351
 ## optimizer (nloptwrap) convergence code: 0 (OK)
-## boundary (singular) fit: see ?isSingular
+## boundary (singular) fit: see help('isSingular')
 ```
 
 
@@ -311,7 +311,7 @@ ff_mod2 <- lmer(firstfix ~ PS * C + (C || subj) + (PS * C || object), kbbb2,
 ```
 
 ```
-## boundary (singular) fit: see ?isSingular
+## boundary (singular) fit: see help('isSingular')
 ```
 
 ```r
@@ -351,7 +351,7 @@ summary(ff_mod2) %>% print(corr = FALSE)
 ## C            1047.79     415.68   2.521
 ## PS:C          195.19     495.80   0.394
 ## optimizer (nloptwrap) convergence code: 0 (OK)
-## boundary (singular) fit: see ?isSingular
+## boundary (singular) fit: see help('isSingular')
 ```
 
 

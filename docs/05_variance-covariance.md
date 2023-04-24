@@ -4,17 +4,19 @@
 
 [Slides](slides/05_vcov/index.html)
 
-[Bivariate distributions app](https://dalejbarr.github.io/bivariate/index.html)
+[My book chapter on correlation](https://psyteachr.github.io/stat-models-v1/correlation-and-regression.html) goes over the topic in more depth, including a discussion of the relationship between correlation and regression.
+
+### Bivariate distributions app
+
+<iframe src="https://dalejbarr.github.io/bivariate/index.html" width="420" height="620" style="border: none;"></iframe>
 
 Note that the "code" pane of the app shows the code you would need to simulated data with the desired properties. This will be useful for the data simulation activity below.
-
-[My book chapter on correlation](https://psyteachr.github.io/stat-models-v1/correlation-and-regression.html) goes over the topic in more depth, including a discussion of the relationship between correlation and regression.
 
 ## Activities
 
 Play around with the app below until you are confident in interpreting variance-covariance matrices.
 
-<iframe src="https://shiny.psy.gla.ac.uk/Dale/cvmx/?showcase=0" width="530px" height="480px" data-external="1"></iframe>
+<iframe src="https://rstudio-connect.psy.gla.ac.uk/covariance/?showcase=0" width="530px" height="480px" data-external="1"></iframe>
 
 ### Simulating data from covariance matrices
 
@@ -186,6 +188,6 @@ combined
 ##  8     1 control    6.24 -3.06  39.6 -101.
 ##  9     1 control    6.24 -3.06  39.6 -101.
 ## 10     1 control    6.24 -3.06  39.6 -101.
-## # … with 90 more rows
+## # ℹ 90 more rows
 ```
 

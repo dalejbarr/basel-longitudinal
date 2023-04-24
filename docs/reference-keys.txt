@@ -33,6 +33,7 @@ activity-1
 testing-for-a-difference-in-time-varying-pattern-across-two-groups
 variance-covariance-matrices
 resources-3
+bivariate-distributions-app
 activities-2
 simulating-data-from-covariance-matrices
 a-2x2-matrix

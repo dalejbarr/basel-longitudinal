@@ -189,7 +189,7 @@ You can add comments to an R script by with the &rsquo;#&rsquo; symbol.  The R i
 `r hide()`
 ```{r chal1}
     8657/6.5
-    ```
+```
 `r unhide()`
 
 #### Storing results in a variable

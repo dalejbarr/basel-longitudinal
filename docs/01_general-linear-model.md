@@ -2,7 +2,7 @@
 
 [Slides](slides/01_intro/index.html)
 
-[GLM web app](https://shiny.psy.gla.ac.uk/Dale/GLM)
+[GLM web app](https://rstudio-connect.psy.gla.ac.uk/GLM/)
 
 ## Activities
 
@@ -33,7 +33,7 @@ sample(1:6, 20, TRUE)
 ```
 
 ```
-##  [1] 6 1 5 4 6 6 5 4 3 5 3 5 6 6 3 1 5 3 3 4
+##  [1] 3 6 5 1 3 1 2 3 4 2 3 2 3 1 1 2 3 3 3 1
 ```
 
 
@@ -323,7 +323,7 @@ simdata
 ##  8     1   1.18   226.
 ##  9     8 -10.3   -310.
 ## 10     2  20.6    171.
-## # … with 40 more rows
+## # ℹ 40 more rows
 ```
 
 

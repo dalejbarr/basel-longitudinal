@@ -2,7 +2,7 @@
 
 [Slides](slides/01_intro/index.html)
 
-[GLM web app](https://shiny.psy.gla.ac.uk/Dale/GLM)
+[GLM web app](https://rstudio-connect.psy.gla.ac.uk/GLM/)
 
 ## Activities
 
