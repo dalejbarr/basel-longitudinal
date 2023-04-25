@@ -19,7 +19,7 @@ github-repo: "dalejbarr/basel-longitudinal"
 
 *Dale J. Barr*
 
-**University of Basel, March 3-4, 2022**
+**University of Basel, April 26--27, 2022**
 
 ## Workshop goals {-}
 
@@ -33,13 +33,13 @@ While it will be possible to understand the conceptual content of the workshop w
 
 ## Workshop plan {-}
 
-- *Day 1* (Thursday, March 3, 2pm-6pm): **Linear regression**
+- *Day 1* (Thursday, April 26, 2pm-6pm): **Linear regression**
   - general linear model
   - multiple regression
   - interactions
   - modeling trends (polynomial, generalized additive mixed models)
 
-- *Day 2* (Friday, March 4, 9am-1pm): **Mixed-effects modeling**
+- *Day 2* (Friday, April 27, 9am-1pm): **Mixed-effects modeling**
   - variance-covariance matrices
   - walkthrough of the `sleepstudy` data
   - specifying the random-effects structure
