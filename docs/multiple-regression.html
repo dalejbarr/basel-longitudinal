@@ -19,14 +19,36 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-6NP3MF25W3');
-  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
 <link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
@@ -72,23 +94,23 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-regression" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-regression" class="section level1" number="2">
 <h1>
 <span class="header-section-number">2</span> Multiple Regression<a class="anchor" aria-label="anchor" href="#multiple-regression"><i class="fas fa-link"></i></a>
 </h1>
-<div id="resources" class="section level2">
+<div id="resources" class="section level2" number="2.1">
 <h2>
 <span class="header-section-number">2.1</span> Resources<a class="anchor" aria-label="anchor" href="#resources"><i class="fas fa-link"></i></a>
 </h2>
 <p><a href="slides/02_multreg/index.html">Slides</a></p>
 <p>My textbook chapter on <a href="https://psyteachr.github.io/stat-models-v1/multiple-regression.html">multiple regression</a> covers a lot of the material in greater depth.</p>
 </div>
-<div id="activity" class="section level2">
+<div id="activity" class="section level2" number="2.2">
 <h2>
 <span class="header-section-number">2.2</span> Activity<a class="anchor" aria-label="anchor" href="#activity"><i class="fas fa-link"></i></a>
 </h2>
 <p>For this set of exercises, you're going to be working with some real data collected about students from a previous year of student in statistics at the University of Glasgow. The data have been anonymized, and no demographic or other sensitive information has been provided. Each student is identified by a unique value of the variable <code>id</code>.</p>
-<p>Students were given the STats Anxiety Rating Scale (STARS), a 51-item questionnaire which measures student's attitudes toward statistics <span class="citation">(Cruise et al., <a href="references-and-further-reading.html#ref-cruise1985">1985</a>)</span>. For each item, students are asked to rate either agreement with a statement on a 1 to 5 scale (1 = strongly disagree, 5 = strongly agree), or rate how anxious they would feel on a 1 to 5 scale (1 = no anxiety, 5 = strong anxiety). Higher numbers mean more anxiety or more negative attitudes toward statistics. If you're interested, you can see the individual survey items below.</p>
+<p>Students were given the STats Anxiety Rating Scale (STARS), a 51-item questionnaire which measures student's attitudes toward statistics <span class="citation">(<a href="references-and-further-reading.html#ref-cruise1985" role="doc-biblioref">Cruise et al., 1985</a>)</span>. For each item, students are asked to rate either agreement with a statement on a 1 to 5 scale (1 = strongly disagree, 5 = strongly agree), or rate how anxious they would feel on a 1 to 5 scale (1 = no anxiety, 5 = strong anxiety). Higher numbers mean more anxiety or more negative attitudes toward statistics. If you're interested, you can see the individual survey items below.</p>
 <div class="webex-solution">
 <button>
 Click here to view the 51 STARS items
@@ -363,17 +385,17 @@ Click here to view the 51 STARS items
 </tbody>
 </table></div>
 </div>
-<p>The STARS items can be divided up into six different subscales <span class="citation">(Hanna et al., <a href="references-and-further-reading.html#ref-hanna2008">2008</a>)</span>, which reflect different aspects of statistics training that students may feel anxiety toward: Asking For Help, Interpretation, Self Concept, Teacher, Test, and (Self-)Worth.</p>
+<p>The STARS items can be divided up into six different subscales <span class="citation">(<a href="references-and-further-reading.html#ref-hanna2008" role="doc-biblioref">Hanna et al., 2008</a>)</span>, which reflect different aspects of statistics training that students may feel anxiety toward: Asking For Help, Interpretation, Self Concept, Teacher, Test, and (Self-)Worth.</p>
 <p>Students in this course were allowed to freely choose what software they used to perform the class assignments, either SPSS or R.</p>
 <p>The data is in the file <a href="data/stars-wide.csv" target="_download">stars-wide.csv</a></p>
 <p>Your task is to use multiple regression examine the relationship between the stats anxiety subscales and overall performance in the class, as measured by the students' final grades.</p>
 </div>
-<div id="tasks" class="section level2">
+<div id="tasks" class="section level2" number="2.3">
 <h2>
 <span class="header-section-number">2.3</span> Tasks<a class="anchor" aria-label="anchor" href="#tasks"><i class="fas fa-link"></i></a>
 </h2>
 <p>Open up a new RMarkdown file and create separate code chunks for each of the following tasks. Alternatively, you can write your code into an R script and mark each task using comments.</p>
-<div id="import-the-data" class="section level3">
+<div id="import-the-data" class="section level3" number="2.3.1">
 <h3>
 <span class="header-section-number">2.3.1</span> Import the data<a class="anchor" aria-label="anchor" href="#import-the-data"><i class="fas fa-link"></i></a>
 </h3>
@@ -410,11 +432,11 @@ solution
 </div>
 </div>
 </div>
-<div id="create-a-correlation-matrix" class="section level3">
+<div id="create-a-correlation-matrix" class="section level3" number="2.3.2">
 <h3>
 <span class="header-section-number">2.3.2</span> Create a correlation matrix<a class="anchor" aria-label="anchor" href="#create-a-correlation-matrix"><i class="fas fa-link"></i></a>
 </h3>
-<p>:::{.try}</p>
+<div class="try">
 <p>Create a correlation matrix using <code><a href="https://corrr.tidymodels.org/reference/correlate.html">corrr::correlate()</a></code> showing the bivariate correlation between your response variable (<code>grade</code>) and the six subscale means.</p>
 <div class="webex-solution">
 <button>
@@ -433,9 +455,9 @@ solution
 <span>  <span class="fu"><a href="https://corrr.tidymodels.org/reference/shave.html">shave</a></span><span class="op">(</span>upper <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://corrr.tidymodels.org/reference/fashion.html">fashion</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">"r"</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## 
-## Correlation method: 'pearson'
-## Missing treated using: 'pairwise.complete.obs'</code></pre>
+<pre><code>## Correlation computed with
+## • Method: 'pearson'
+## • Missing treated using: 'pairwise.complete.obs'</code></pre>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr>
 <th style="text-align:right;">
@@ -621,9 +643,9 @@ Worth
 </tbody>
 </table></div>
 </div>
-<p>:::</p>
 </div>
-<div id="visualize-all-pairwise-correlations" class="section level3">
+</div>
+<div id="visualize-all-pairwise-correlations" class="section level3" number="2.3.3">
 <h3>
 <span class="header-section-number">2.3.3</span> Visualize all pairwise correlations<a class="anchor" aria-label="anchor" href="#visualize-all-pairwise-correlations"><i class="fas fa-link"></i></a>
 </h3>
@@ -647,7 +669,7 @@ solution
 </div>
 </div>
 </div>
-<div id="run-the-multiple-regression" class="section level3">
+<div id="run-the-multiple-regression" class="section level3" number="2.3.4">
 <h3>
 <span class="header-section-number">2.3.4</span> Run the multiple regression<a class="anchor" aria-label="anchor" href="#run-the-multiple-regression"><i class="fas fa-link"></i></a>
 </h3>
@@ -696,7 +718,7 @@ solution
 </div>
 </div>
 </div>
-<div id="which-subscale-is-the-best-predictor" class="section level3">
+<div id="which-subscale-is-the-best-predictor" class="section level3" number="2.3.5">
 <h3>
 <span class="header-section-number">2.3.5</span> Which subscale is the 'best' predictor?<a class="anchor" aria-label="anchor" href="#which-subscale-is-the-best-predictor"><i class="fas fa-link"></i></a>
 </h3>
@@ -762,7 +784,7 @@ solution
 </div>
 </div>
 </div>
-<div id="compare-models" class="section level3">
+<div id="compare-models" class="section level3" number="2.3.6">
 <h3>
 <span class="header-section-number">2.3.6</span> Compare models<a class="anchor" aria-label="anchor" href="#compare-models"><i class="fas fa-link"></i></a>
 </h3>
@@ -816,7 +838,7 @@ solution
 </div>
 </div>
 </div>
-<div id="choice-of-software-and-grade" class="section level3">
+<div id="choice-of-software-and-grade" class="section level3" number="2.3.7">
 <h3>
 <span class="header-section-number">2.3.7</span> Choice of software and grade<a class="anchor" aria-label="anchor" href="#choice-of-software-and-grade"><i class="fas fa-link"></i></a>
 </h3>
@@ -1007,7 +1029,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2023-04-24.</p>
+    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2023-04-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

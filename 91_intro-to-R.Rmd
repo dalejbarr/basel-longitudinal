@@ -109,7 +109,7 @@ ggsave("names.png", g)
 # if you lack the cowsay package, then type
 # the following in the console:
 # install.packages("cowsay")
-say("We did it!", "signbunny")
+say("We did it!")
 ```
 
 Some of the skills and tips demonstrated in the live coding session include:
@@ -239,7 +239,7 @@ boring_calculation
 # often useful to spread function arguments over multiple lines
 library(cowsay)
 say("This function call is far too wide to fit all on one line",
-    "stretchycat")
+    "monkey")
 ```
 
 ![](images/01_walkthrough/stretchycat.png)
@@ -700,7 +700,7 @@ library("cowsay")
     <div class="webex.solution"><button>Solution</button>
     ```{r ex3}
     say("If you want to know what God thinks of money, just look at the people he gave it to. ~Dorothy Parker", 
-        "grumpycat")
+        "alligator")
     ```
     </div>
 

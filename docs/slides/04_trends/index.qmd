@@ -1,0 +1,262 @@
+---
+title: "4. Trends"
+author: Dale Barr
+institute: University of Glasgow
+title-slide-attributes:
+  data-background-image: titlescreen.png
+format: 
+  revealjs:
+    theme: dark
+    code-line-numbers: false
+    df-print: kable
+knitr:
+  opts_chunk:
+    echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+options(tidyverse.quiet=TRUE)
+library("tidyverse")
+library("lme4")
+
+options(width = 60)
+
+source("../theme_jetblack.R")
+theme_set(theme_jetblack(14L))
+
+```
+
+## modeling latent change
+
+a.k.a., "growth curve analysis", "latent trend models"
+
+approach: assume the pattern of growth/change develops following the parameters of some unobserved (latent) function
+
+::: {.notes}
+- could be basically anything, ideally, "functional form" driven by theory, but can also be data driven
+
+- focus on single-level data, but often multilevel
+:::
+
+## simplest model
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+```{r}
+#| echo: false
+s308 <- sleepstudy[sleepstudy$Subject == "308", ]
+
+ggplot(s308,
+       aes(Days, Reaction)) +
+  geom_point(color = "yellow", size = 2) +
+  geom_smooth(method = "lm",
+              se = FALSE) +
+  scale_x_continuous(breaks = 0:9) +
+  labs(x = "Nights deprived",
+       y = "Mean Response Time (ms)") +
+  ggtitle("Belenky et al. (2003)",
+          subtitle = "sleep deprivation study")
+```
+
+:::
+
+::: {.column width="30%"}
+$$Y_i = \beta_0 + \beta_1 t_i + e_i$$
+
+
+```{r}
+#| echo: false
+mod <- lm(Reaction ~ Days, s308)
+b0 <- coef(mod)["(Intercept)"]
+b1 <- coef(mod)["Days"]
+```
+
+$\beta_0$ = `r sprintf("%0.0f", b0)`
+
+$\beta_1$ = `r sprintf("%0.0f", b1)`
+
+:::
+
+::::
+
+::: {.notes}
+one possible consequence of model misspecification: residuals will be non-normal
+:::
+
+## Quadratic
+
+$$Y_i = \beta_0 + \beta_1 t_i + \beta_2 t_i^2 + e_i$$
+
+```{r}
+#| echo: false
+ggplot(s308,
+       aes(Days, Reaction)) +
+  geom_point(color = "yellow", size = 2) +
+  geom_smooth(method = "lm",
+              formula = y ~ x + I(x^2),
+              se = FALSE) +
+  scale_x_continuous(breaks = 0:9) +
+  labs(x = "Nights deprived",
+       y = "Mean Response Time (ms)") +
+  ggtitle("Belenky et al. (2003)",
+          subtitle = "sleep deprivation study")
+```
+
+## Cubic
+
+$$Y_i = \beta_0 + \beta_1 t_i + \beta_2 t_i^2 + \beta_3 t_i^3 + e_i$$
+
+```{r}
+#| echo: false
+ggplot(s308,
+       aes(Days, Reaction)) +
+  geom_point(color = "yellow", size = 2) +
+  geom_smooth(method = "lm",
+              formula = y ~ x + I(x^2) + I(x^3),
+              se = FALSE) +
+  scale_x_continuous(breaks = 0:9) +
+  labs(x = "Nights deprived",
+       y = "Mean Response Time (ms)") +
+  ggtitle("Belenky et al. (2003)",
+          subtitle = "sleep deprivation study")
+```
+
+## Wiggly
+
+```{r}
+#| echo: false
+ggplot(s308,
+       aes(Days, Reaction)) +
+  geom_point(color = "yellow", size = 2) +
+  geom_smooth(method = "loess", span = .5,
+              se = FALSE) +
+  scale_x_continuous(breaks = 0:9) +
+  labs(x = "Nights deprived",
+       y = "Mean Response Time (ms)") +
+  ggtitle("Belenky et al. (2003)",
+          subtitle = "sleep deprivation study")
+```
+
+## polynomial models
+
+| order              | model                                                                  |
+|:-------------------|:-----------------------------------------------------------------------|
+| first (linear)     | $Y_i = \beta_0 + \beta_1 t_i + e_i$                                    |
+| second (quadratic) | $Y_i = \beta_0 + \beta_1 t_i + \beta_2 {t_i}^2 +e_i$                   |
+| third (cubic)      | $Y_i = \beta_0 + \beta_1 t_i + \beta_2 {t_i}^2 + \beta_3 {t_i}^3 +e_i$ |
+
+::: {.notes}
+order: the highest order of exponent
+
+can go arbitrarily high
+:::
+
+## data-driven functional form
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+```{r}
+lin <- lm(Reaction ~ Days, s308)
+
+quad <-
+  lm(Reaction ~ Days + I(Days^2), s308)
+
+cub <-
+  lm(Reaction ~ Days +
+       I(Days^2) + I(Days^3), s308)
+
+quar <-
+  lm(Reaction ~ Days +
+       I(Days^2) + I(Days^3) +
+       I(Days^4), s308)
+
+quin <-
+  lm(Reaction ~ Days +
+       I(Days^2) + I(Days^3) +
+       I(Days^4) + I(Days^5), s308)
+```
+
+:::
+
+::: {.column width="40%"}
+
+```{r}
+AIC(lin, quad, cub, quar, quin)
+```
+
+:::
+
+::::
+
+## natural vs orthogonal polynomials
+
+## comparing trends across groups
+
+```{r}
+#| echo: false
+stwo <- sleepstudy[sleepstudy$Subject == "308" |
+                     sleepstudy$Subject == "331", ]
+
+names(stwo) <- c("Reaction", "Days", "Group")
+stwo$Days2 <- stwo$Days^2
+stwo$group <- if_else(stwo$Group == "331", .5, -.5)
+
+ggplot(stwo, aes(Days, Reaction, color = Group)) +
+  geom_point() +
+  geom_smooth(method = "lm",
+              formula = y ~ x + I(x^2),
+              se=FALSE) +
+  scale_color_manual(values = c("yellow", "green"))
+```
+
+## comparing trends across groups
+
+:::: {.columns}
+
+::: {.column width="30%"}
+
+```{r}
+#| echo: false
+stwo <- sleepstudy[sleepstudy$Subject == "308" |
+                     sleepstudy$Subject == "331", ]
+
+names(stwo) <- c("Reaction", "Days", "Group")
+stwo$Days2 <- stwo$Days^2
+stwo$group <- if_else(stwo$Group == "331", .5, -.5)
+
+ggplot(stwo, aes(Days, Reaction, color = Group)) +
+  geom_point() +
+  geom_smooth(method = "lm",
+              formula = y ~ x + I(x^2),
+              se=FALSE) +
+  scale_color_manual(values = c("yellow", "green"))
+```
+
+:::
+
+::: {.column width="70%"}
+
+```{r}
+#| results: hide
+mod2 <- lm(Reaction ~ (Days + Days2) * group,
+           data = stwo)
+
+summary(mod2)
+```
+
+```{r}
+#| echo: false
+.out <- capture.output(print(summary(mod2), signif.stars = FALSE))
+cat(.out[-c(1:8)], sep = "\n")
+```
+
+:::
+
+::::

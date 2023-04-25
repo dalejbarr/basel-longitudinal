@@ -19,14 +19,36 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-6NP3MF25W3');
-  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
 <link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
@@ -72,13 +94,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="regression-basics" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="regression-basics" class="section level1" number="1">
 <h1>
 <span class="header-section-number">1</span> Regression basics<a class="anchor" aria-label="anchor" href="#regression-basics"><i class="fas fa-link"></i></a>
 </h1>
 <p><a href="slides/01_intro/index.html">Slides</a></p>
 <p><a href="https://rstudio-connect.psy.gla.ac.uk/GLM/">GLM web app</a></p>
-<div id="activities" class="section level2">
+<div id="activities" class="section level2" number="1.1">
 <h2>
 <span class="header-section-number">1.1</span> Activities<a class="anchor" aria-label="anchor" href="#activities"><i class="fas fa-link"></i></a>
 </h2>
@@ -86,7 +108,7 @@
 <p>Make sure you've loaded the tidyverse package before you begin. You'll need it for the <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> function.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span></span></code></pre></div>
-<div id="simulating-discrete-data" class="section level3">
+<div id="simulating-discrete-data" class="section level3" number="1.1.1">
 <h3>
 <span class="header-section-number">1.1.1</span> Simulating discrete data<a class="anchor" aria-label="anchor" href="#simulating-discrete-data"><i class="fas fa-link"></i></a>
 </h3>
@@ -100,7 +122,7 @@ solution
 </button>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="fl">20</span>, <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] 3 6 5 1 3 1 2 3 4 2 3 2 3 1 1 2 3 3 3 1</code></pre>
+<pre><code>##  [1] 5 4 5 2 1 5 2 1 3 4 6 4 3 1 5 3 3 3 5 2</code></pre>
 </div>
 </div>
 <div class="info">
@@ -139,7 +161,7 @@ solution
 </div>
 </div>
 </div>
-<div id="simulating-normally-distributed-continuous-data" class="section level3">
+<div id="simulating-normally-distributed-continuous-data" class="section level3" number="1.1.2">
 <h3>
 <span class="header-section-number">1.1.2</span> Simulating normally distributed continuous data<a class="anchor" aria-label="anchor" href="#simulating-normally-distributed-continuous-data"><i class="fas fa-link"></i></a>
 </h3>
@@ -175,7 +197,7 @@ solution
 </div>
 </div>
 </div>
-<div id="putting-things-into-a-table-or-tibble" class="section level3">
+<div id="putting-things-into-a-table-or-tibble" class="section level3" number="1.1.3">
 <h3>
 <span class="header-section-number">1.1.3</span> Putting things into a table (or <code>tibble</code>)<a class="anchor" aria-label="anchor" href="#putting-things-into-a-table-or-tibble"><i class="fas fa-link"></i></a>
 </h3>
@@ -243,7 +265,7 @@ solution
 </div>
 </div>
 </div>
-<div id="simulating-data-from-the-linear-model" class="section level3">
+<div id="simulating-data-from-the-linear-model" class="section level3" number="1.1.4">
 <h3>
 <span class="header-section-number">1.1.4</span> Simulating data from the linear model<a class="anchor" aria-label="anchor" href="#simulating-data-from-the-linear-model"><i class="fas fa-link"></i></a>
 </h3>
@@ -272,9 +294,9 @@ solution
 <button>
 hint
 </button>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">simdata &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">x =</span> <span class="kw">sample</span>( ??? ),</a>
-<a class="sourceLine" id="cb20-2" title="2">                  <span class="dt">e =</span> <span class="kw">rnorm</span>( ??? ),</a>
-<a class="sourceLine" id="cb20-3" title="3">                  <span class="dt">y =</span> <span class="dv">300</span>...???)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="regression-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>simdata <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">sample</span>( ??? ),</span>
+<span id="cb20-2"><a href="regression-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">e =</span> <span class="fu">rnorm</span>( ??? ),</span>
+<span id="cb20-3"><a href="regression-basics.html#cb20-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> <span class="dv">300</span>...???)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
@@ -304,7 +326,7 @@ solution
 </div>
 </div>
 </div>
-<div id="estimate-the-regression-coefficients" class="section level3">
+<div id="estimate-the-regression-coefficients" class="section level3" number="1.1.5">
 <h3>
 <span class="header-section-number">1.1.5</span> Estimate the regression coefficients<a class="anchor" aria-label="anchor" href="#estimate-the-regression-coefficients"><i class="fas fa-link"></i></a>
 </h3>
@@ -339,7 +361,7 @@ solution
 </div>
 </div>
 </div>
-<div id="deriving-predictions" class="section level3">
+<div id="deriving-predictions" class="section level3" number="1.1.6">
 <h3>
 <span class="header-section-number">1.1.6</span> Deriving predictions<a class="anchor" aria-label="anchor" href="#deriving-predictions"><i class="fas fa-link"></i></a>
 </h3>
@@ -366,7 +388,7 @@ solution
 </div>
 </div>
 </div>
-<div id="model-diagnostics" class="section level3">
+<div id="model-diagnostics" class="section level3" number="1.1.7">
 <h3>
 <span class="header-section-number">1.1.7</span> Model diagnostics<a class="anchor" aria-label="anchor" href="#model-diagnostics"><i class="fas fa-link"></i></a>
 </h3>
@@ -526,7 +548,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2023-04-24.</p>
+    <p>"<strong>Mixed-effects models for longitudinal data</strong>" was written by Dale J. Barr. It was last built on 2023-04-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

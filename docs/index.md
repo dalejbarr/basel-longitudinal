@@ -1,7 +1,7 @@
 --- 
 title: "Mixed-effects models for longitudinal data"
 author: "Dale J. Barr"
-date: "2023-04-24"
+date: "2023-04-25"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

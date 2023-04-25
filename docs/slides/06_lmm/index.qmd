@@ -1,0 +1,208 @@
+---
+title: "6. Linear mixed-effects models"
+author: Dale Barr
+institute: University of Glasgow
+title-slide-attributes:
+  data-background-image: titlescreen.png
+format: 
+  revealjs:
+    theme: dark
+    code-line-numbers: false
+    df-print: default
+knitr:
+  opts_chunk:
+    echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+options(tidyverse.quiet=TRUE)
+library("tidyverse")
+library("lme4")
+
+source("../theme_jetblack.R")
+theme_set(theme_jetblack(14L))
+```
+
+## Overview
+
+- distinguish complete pooling, no pooling and partial pooling
+  approaches to analysis for multi-level data
+- understand the DGP behind multi-level data
+- estimate multilevel models with `lme4::lmer()`
+
+
+## Multilevel data
+
+- All parametric models assume model residuals are IID ("independently and identically distributed")
+- Data often has 'clusters' of correlated observations due to
+  - natural clustering
+  - multistage sampling
+
+## pros and cons of LMEMs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Pros**
+
+- powerful & expressive
+- model continuous & categorical predictors
+- handle unbalanced and missing data
+- multiple random factors
+- generalized LMMs
+
+:::
+
+::: {.column width="50%"}
+
+**Cons**
+
+- complex
+- estimated iteratively and may not converge!
+:::
+
+::::
+
+## Sleep-deprivation study
+
+::: {.r-stack}
+![](img/sleepstudy_article.png)
+:::
+
+---
+
+::: {.r-stack}
+![](img/belenky_summary.png)
+:::
+
+::: aside
+Belenky, G., Wesensten, N. J., Thorne, D. R., Thomas, M. L., Sing, H. C., Redmond, D. P., Russo, M. B., & Balkin, T. J. (2003). [Patterns of performance degradation and restoration during sleep restriction and subsequent recovery: A sleep dose-response study.](https://doi.org/10.1046/j.1365-2869.2003.00337.x) *Journal of Sleep Research*, *12*, 1–12.
+:::
+
+---
+
+::: {.r-stack}
+![](img/sleepstudy_design.png)
+:::
+
+::: aside
+*TIB*: time in bed
+
+Belenky, G., Wesensten, N. J., Thorne, D. R., Thomas, M. L., Sing, H. C., Redmond, D. P., Russo, M. B., & Balkin, T. J. (2003). [Patterns of performance degradation and restoration during sleep restriction and subsequent recovery: A sleep dose-response study.](https://doi.org/10.1046/j.1365-2869.2003.00337.x) *Journal of Sleep Research*, *12*, 1–12.
+:::
+
+---
+
+::: {.r-stack}
+![](img/psychomotor_vigilance_test.png)
+:::
+
+::: aside
+Belenky, G., Wesensten, N. J., Thorne, D. R., Thomas, M. L., Sing, H. C., Redmond, D. P., Russo, M. B., & Balkin, T. J. (2003). [Patterns of performance degradation and restoration during sleep restriction and subsequent recovery: A sleep dose-response study.](https://doi.org/10.1046/j.1365-2869.2003.00337.x) *Journal of Sleep Research*, *12*, 1–12.
+:::
+
+## `lme4::sleepstudy`
+
+```{r}
+library("lme4")
+
+head(sleepstudy)
+```
+
+## visualization
+
+```{r}
+#| output-location: slide
+#| fig-height: 6.5
+ggplot(sleepstudy, aes(Days, Reaction)) + 
+  geom_point(color = "yellow") +
+  scale_x_discrete(limits = 0:9) +
+  facet_wrap(~Subject)
+```
+
+## Approaches to ML data
+
+1. complete pooling
+  - ignore dependencies in the data
+2. no pooling
+  - account for dependencies by fitting each subject independently
+3. partial pooling
+  - account for dependencies by explicitly modeling them
+  - fit for each subject informed by the fits for other subjects
+
+## {background-iframe="https://rstudio-connect.psy.gla.ac.uk/multilevel/"}
+
+## GLM for sleepstudy
+
+::: {.r-stack}
+**Level 1:**
+:::
+
+$$Y_{ij} = \beta_0 + \beta_1 X_{ij} + e_{ij}$$
+
+::: {.r-stack}
+**Level 2:**
+:::
+
+$$\beta_0 = \gamma_{00} + S_{0i}$$
+
+$$\beta_1 = \gamma_{10} + S_{1i}$$
+
+## Variance Components
+
+$$ \left< S_{0i}, S_{1i} \right> \sim N(\left< 0, 0 \right>, \mathbf{\Sigma}) $$
+
+$$\mathbf \Sigma = \left( \begin{array}{cc}{\tau_{00}}^2 & \rho\tau_{00}\tau_{11} \\ \rho\tau_{00}\tau_{11} & {\tau_{11}}^2 \\ \end{array} \right)$$
+
+$$e_{ij} \sim N(0, \sigma^2)$$
+
+## Estimation {.smaller}
+
+```{r}
+#| output-location: column-fragment
+library("lme4")
+
+mod <- lmer(Reaction ~ Days + (Days | Subject), 
+            data = sleepstudy)
+
+summary(mod)
+```
+
+## model syntax
+
+::: {.r-stack}
+`dv ~ iv1 + iv2 + (iv1 | z)`
+:::
+
+```{r}
+#| eval: false
+# (1) random intercept
+Reaction ~ Days + (1 | Subject)
+
+# (2),(3) random slope model.
+Reaction ~ Days + (1 + Days | Subject)
+Reaction ~ Days + (Days | Subject)
+
+# (4),(5) zero-covariances
+Reaction ~ Days + (Days || Subject)
+Reaction ~ Days + (1 | Subject) + (0 + Days | Subject) 
+```
+
+## $p$-values: model comparison
+
+```{r}
+#| output-location: fragment
+mod1 <- lmer(Reaction ~ Days + (Days | Subject), sleepstudy, REML = FALSE)
+
+mod2 <- lmer(Reaction ~ (Days | Subject), sleepstudy, REML = FALSE)
+
+anova(mod1, mod2)
+```
+
+::: aside
+**NB: use REML=FALSE**
+:::

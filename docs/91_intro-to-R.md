@@ -110,7 +110,7 @@ ggsave("names.png", g)
 # if you lack the cowsay package, then type
 # the following in the console:
 # install.packages("cowsay")
-say("We did it!", "signbunny")
+say("We did it!")
 ```
 
 Some of the skills and tips demonstrated in the live coding session include:
@@ -296,24 +296,30 @@ boring_calculation
 # often useful to spread function arguments over multiple lines
 library(cowsay)
 say("This function call is far too wide to fit all on one line",
-    "stretchycat")
+    "monkey")
 ```
 
 ```
 ## 
-##  -------------- 
+##  ------------- 
 ## This function call is far too wide to fit all on one line 
-##  --------------
-##     \
-##       \
-##         \
-##                         ,/|         _.--‛‛^``-...___.._.,;
-##                       /, \‛.     _-‛          ,--,,,--‛‛‛
-##                      {  \    `_-‛‛       ‛    /}‛
-## Jill                    `;;‛             ;   ; ;
-##                   ._.--‛‛     ._,,, _..‛  .;.‛
-##                   (,_....----‛‛‛     (,..--‛‛
+##  -------------- 
+##               \   
+##                \  
+##                 \
 ## 
+##                   .="=.
+##                 _/.-.-.\_     _
+##                ( ( o o ) )    ))
+##                 |/  "  \|    //
+##                  \'---'/    //
+##            jgs   /`"""`\\  ((
+##                 / /_,_\ \\  \\
+##                 \_\_'__/  \  ))
+##                 /`  /`~\   |//
+##                /   /    \  /
+##           ,--`,--'\/\    /
+##           '-- "--'  '--'
 ```
 
 ![](images/01_walkthrough/stretchycat.png)
@@ -798,11 +804,10 @@ fortune()
 
 ```
 ## 
-## Michael Watson: Hopefully this one isn't in the manual or I am about to get
-## shot :-S
-## Peter Dalgaard: *Kapow*...
-##    -- Michael Watson and Peter Dalgaard (question on axis())
-##       R-help (February 2006)
+## So apparently you wish to report as a bug the fact that R 1.8.0 is different
+## from R 1.4.0.
+##    -- Douglas Bates
+##       R-devel (October 2003)
 ```
 
 Note that we will use the convention `package::function()` and `package::object` to indicate in which add-on package a function or object resides.  For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the `readr` add-on package.  If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context).  Sometimes I will make this explicit by using `base` in the place of the package name; for instance, I might refer to `rnorm()` in base as `base::rnorm()`.
@@ -893,8 +898,8 @@ rnorm(10)
 ```
 
 ```
-##  [1]  1.0847309  0.8294717  1.1325919  2.4144119  1.5189512  0.4116223
-##  [7] -0.6659313  1.6244298  0.8375750  0.3926430
+##  [1]  1.0191595 -0.5850189 -0.4953495  1.2572630 -1.2729866  0.7291768
+##  [7]  1.4933472 -0.5586518  0.8951925  0.9976457
 ```
 
 If you want 10 numbers from a distribution with a mean of 100:
@@ -905,8 +910,8 @@ rnorm(10, 100)
 ```
 
 ```
-##  [1]  99.69674  99.66680 100.28170 100.10401 100.24251  98.50356 100.61571
-##  [8] 100.98197 101.18132 101.34773
+##  [1] 100.41146  99.71475  99.40212 100.34746 100.46081  99.57519  99.30134
+##  [8]  99.39498 100.42041  97.92533
 ```
 
 This would be an equivalent but less efficient way of calling the function:
@@ -917,8 +922,8 @@ rnorm(n = 10, mean = 100)
 ```
 
 ```
-##  [1] 101.35388 101.59815 100.45419  99.93911 100.08454 100.13152  99.95648
-##  [8] 100.03925  98.44206 100.67980
+##  [1] 101.23929 100.48407 101.29467 100.74689 101.05526 100.05958  99.44876
+##  [8]  99.12589  99.50383  98.71772
 ```
 
 We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call.  However, if we want to change the default for an argument coming later in the list, then we need to name it.  For instance, if we wanted to keep the default `mean = 0` but change the standard deviation to 100 we would do it this way:
@@ -929,8 +934,8 @@ rnorm(10, sd = 100)
 ```
 
 ```
-##  [1] -20.63769 -47.76632  96.62185  55.35052  29.08400  21.85750 -31.80435
-##  [8]  64.03775  31.49409 157.71607
+##  [1]  -28.64490   73.92571 -171.63693  -56.95894  -84.81518   82.65974
+##  [7]  -81.86037  -40.46092  -26.91658   31.44750
 ```
 
 #### Exercises {#cowsay}
@@ -1037,20 +1042,26 @@ Important! Try to perform each task making the shortest function call you can by
     
     ```r
     say("If you want to know what God thinks of money, just look at the people he gave it to. ~Dorothy Parker", 
-        "grumpycat")
+        "alligator")
     ```
     
     ```
     ## 
-    ##  -------------- 
+    ##  ------ 
     ## If you want to know what God thinks of money, just look at the people he gave it to. ~Dorothy Parker 
-    ##  --------------
-    ##     \
-    ##       \
-    ##         \
-    ##       ﾊ _ ﾊ
-    ##       ಠ X ಠ
-    ## 
+    ##  ------ 
+    ##    \   
+    ##     \  
+    ##      \
+    ##            .-._   _ _ _ _ _ _ _ _
+    ## .-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.
+    ## '.___ '    .   .--_'-' '-' '-' _'-' '._
+    ## V: V 'vv-'   '_   '.       .'  _..' '.'.
+    ##   '=.____.=_.--'   :_.__.__:_   '.   : :
+    ##            (((____.-'        '-.  /   : :
+    ## snd                          (((-'\ .' /
+    ##                            _____..'  .'
+    ##                           '-._____.-'
     ```
     </div>
 
@@ -1091,11 +1102,11 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## John Miller: How do I prevent google search to post my questions asked here??
-    ## Martin Maechler: you don't: R-help is famous and celebrity can't be gotten rid off ;-)
-    ##  John Miller and Martin Maechler
-    ##  R-help
-    ##  June 2004 
+    ## I think the rule is that you can do anything as long as you don't complain. If you want to complain, you must follow the instructions.
+    ##  Jari Oksanen
+    ##  about not following the instructions when compiling R-devel
+    ##  R-devel
+    ##  February 2013 
     ##  --------------
     ##     \
     ##       \
@@ -1127,7 +1138,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  ----- 
-    ## Mon Apr 24 11:10:43 2023 
+    ## Tue Apr 25 17:15:47 2023 
     ##  ------ 
     ##     \   
     ##      \
@@ -1156,7 +1167,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Mon Apr 24 11:10:43 2023 
+    ## Tue Apr 25 17:15:47 2023 
     ##  --------------
     ##     \
     ##       \
@@ -1202,7 +1213,7 @@ sort(y, TRUE) # set second argument to 'TRUE' so that sort order is descending
 ```
 
 ```
-## [1] 9 5 4 1
+## [1] 10  5
 ```
 
 
@@ -1214,7 +1225,7 @@ sort(unique(sample(1:10, 5, replace = TRUE)), TRUE)
 ```
 
 ```
-## [1] 8 7 6 3
+## [1] 7 5 3 1
 ```
 
 (If the above call looks confusing, it should!) The call to `sample()` is embedded within a call to `unique()` which in turn is embedded within a call to `sort()`. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function `sample()`, whose result is then passed in as the first argument to `unique(`), whose result in turn is passed in as the first argument to `sort()`; notice the second argument of sort (`TRUE`) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.
@@ -1228,7 +1239,7 @@ sample(1:10, 5, replace = TRUE) %>%
 ```
 
 ```
-## [1] 9 4 2
+## [1] 10  9  7  5
 ```
 
 R will calculate the result of `sample(1:10, 5, replace = TRUE)` and then pass this result as the first argument of `unique()`; then, the result of `unique()` will in turn be passed along as the first argument of `sort()` with the second argument set to `TRUE`. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.

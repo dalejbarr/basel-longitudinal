@@ -1,0 +1,32 @@
+---
+title: "1. Introduction"
+author: Dale Barr
+institute: University of Glasgow
+title-slide-attributes:
+  data-background-image: titlescreen.png
+format: 
+  revealjs:
+    theme: dark
+    code-line-numbers: false
+    df-print: default
+knitr:
+  opts_chunk:
+    echo: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+options(tidyverse.quiet=TRUE)
+library("tidyverse")
+library("lme4")
+
+options(width = 60)
+
+source("../theme_jetblack.R")
+theme_set(theme_jetblack(14L))
+```
+
+## hello
+
