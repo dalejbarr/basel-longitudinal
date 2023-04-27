@@ -47,10 +47,11 @@ step-1-generate-random-effects
 step-2-make-a-tibble-with-fixed-effects-and-random-error-noise
 step-3-combine
 estimate-the-model
-random-effects-structure
-resources-5
-maximal-random-effects
-re-analysis-of-keysar-barr-balin-brauner-experiment-2
+longitudinal-analysis-of-multilevel-data
+truth-trajectory-data
+orthogonal-polynomial-model-with-days
+orthogonal-polynomial-with-logdays
+back-to-the-math
 going-further
 installing-and-configuring-rrstudio
 what-is-r
@@ -103,7 +104,11 @@ workdir
 load
 writing-data
 reproducible-reports-with-rstudio-and-rmarkdown
+resources-5
+extra-practice-random-effects-in-crossed-designs
 resources-6
+maximal-random-effects
+re-analysis-of-keysar-barr-balin-brauner-experiment-2
 references-and-further-reading
 further-reading
 linear-mixed-effects-models-1
