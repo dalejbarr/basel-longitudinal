@@ -804,10 +804,12 @@ fortune()
 
 ```
 ## 
-## Firstly, don't call your matrix 'matrix'. Would you call your dog 'dog'?
-## Anyway, it might clash with the function 'matrix'.
-##    -- Barry Rowlingson
-##       R-help (October 2004)
+## On average, any data manipulation that can be described in a sentence or two of
+## English can be programmed in one line in R. If you find yourself writing a long
+## 'for' loop to do something that sounds simple, take a step back and research if
+## an existing combination of functions can easily handle your request.
+##    -- Erik Iverson
+##       R-help (June 2010)
 ```
 
 Note that we will use the convention `package::function()` and `package::object` to indicate in which add-on package a function or object resides.  For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the `readr` add-on package.  If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context).  Sometimes I will make this explicit by using `base` in the place of the package name; for instance, I might refer to `rnorm()` in base as `base::rnorm()`.
@@ -898,8 +900,8 @@ rnorm(10)
 ```
 
 ```
-##  [1]  0.82533554 -0.22805877  0.05710025 -1.67803062  1.69722597 -0.69888959
-##  [7] -1.82105400  0.93479538  0.35318903  0.55839313
+##  [1] -0.35762507  0.60494335 -2.45132975  0.26460426 -0.61757137 -0.77314912
+##  [7]  0.86022278 -0.02621937  0.26733391 -2.08649887
 ```
 
 If you want 10 numbers from a distribution with a mean of 100:
@@ -910,8 +912,8 @@ rnorm(10, 100)
 ```
 
 ```
-##  [1]  99.08788  99.72873  98.01543 100.62247 101.03002  99.07044 100.28509
-##  [8]  97.86036 100.77907  99.68532
+##  [1] 101.13106  98.99152 100.87885 100.58494 100.49561  99.14118 100.92819
+##  [8] 101.56542  99.21995  98.73321
 ```
 
 This would be an equivalent but less efficient way of calling the function:
@@ -922,8 +924,8 @@ rnorm(n = 10, mean = 100)
 ```
 
 ```
-##  [1]  98.82221  99.66339  99.34725 100.27762 100.77815  99.06569 100.31434
-##  [8]  98.28428 100.29173  99.78607
+##  [1]  98.70816 101.11473  99.82903  99.77182 100.23116  99.99806 100.23975
+##  [8]  99.43231  98.65523  98.76016
 ```
 
 We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call.  However, if we want to change the default for an argument coming later in the list, then we need to name it.  For instance, if we wanted to keep the default `mean = 0` but change the standard deviation to 100 we would do it this way:
@@ -934,8 +936,8 @@ rnorm(10, sd = 100)
 ```
 
 ```
-##  [1] -141.623118   22.012254   -8.249735  -26.339411   32.159074  -71.821427
-##  [7]  104.252062   -7.814700  -31.054908   65.157326
+##  [1]  -87.324997  -89.363670   67.552423    6.054861 -169.218412  -71.517214
+##  [7]  -86.098921   69.412412   39.526356  110.296500
 ```
 
 #### Exercises {#cowsay}
@@ -1102,10 +1104,10 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Please do think hard before you tell other people what they 'should' do for you.
-    ##  Brian D. Ripley
-    ##  R-devel
-    ##  January 2006 
+    ## R will always be arcane to those who do not make a serious effort to learn it. It is **not** meant to be intuitive and easy for casual users to just plunge into. It is far too complex and powerful for that. But the rewards are great for serious data analysts who put in the effort.
+    ##  Berton Gunter
+    ##  R-help
+    ##  August 2007 
     ##  --------------
     ##     \
     ##       \
@@ -1137,7 +1139,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  ----- 
-    ## Tue Apr 25 17:20:48 2023 
+    ## Thu Apr 27 09:18:14 2023 
     ##  ------ 
     ##     \   
     ##      \
@@ -1166,7 +1168,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Tue Apr 25 17:20:48 2023 
+    ## Thu Apr 27 09:18:14 2023 
     ##  --------------
     ##     \
     ##       \
@@ -1212,7 +1214,7 @@ sort(y, TRUE) # set second argument to 'TRUE' so that sort order is descending
 ```
 
 ```
-## [1] 6 4 3 2 1
+## [1] 10  6  5  2  1
 ```
 
 
@@ -1224,7 +1226,7 @@ sort(unique(sample(1:10, 5, replace = TRUE)), TRUE)
 ```
 
 ```
-## [1] 10  8  5  3  1
+## [1] 9 8 7 6 5
 ```
 
 (If the above call looks confusing, it should!) The call to `sample()` is embedded within a call to `unique()` which in turn is embedded within a call to `sort()`. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function `sample()`, whose result is then passed in as the first argument to `unique(`), whose result in turn is passed in as the first argument to `sort()`; notice the second argument of sort (`TRUE`) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.
@@ -1238,7 +1240,7 @@ sample(1:10, 5, replace = TRUE) %>%
 ```
 
 ```
-## [1] 8 5 3 2
+## [1] 7 4 2
 ```
 
 R will calculate the result of `sample(1:10, 5, replace = TRUE)` and then pass this result as the first argument of `unique()`; then, the result of `unique()` will in turn be passed along as the first argument of `sort()` with the second argument set to `TRUE`. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.

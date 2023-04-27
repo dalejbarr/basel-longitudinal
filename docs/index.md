@@ -1,14 +1,14 @@
 --- 
 title: "Mixed-effects models for longitudinal data"
 author: "Dale J. Barr"
-date: "2023-04-25"
+date: "2023-04-27"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apa
 csl: include/apa.csl
 link-citations: yes
-description: "Workshop at University of Basel, March 3-4, 2022."
+description: "Workshop at University of Basel, April 26-27, 2023."
 url: "https://dalejbarr.github.io/basel-longitudinal"
 github-repo: "dalejbarr/basel-longitudinal"
 ---
@@ -19,7 +19,7 @@ github-repo: "dalejbarr/basel-longitudinal"
 
 *Dale J. Barr*
 
-**University of Basel, April 26--27, 2022**
+**University of Basel, April 26-27, 2023**
 
 ## Workshop goals {-}
 
