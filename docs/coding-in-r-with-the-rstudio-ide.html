@@ -203,7 +203,7 @@ There are two tweaks that you should do to your RStudio installation to maximize
 <li>save anything you need to save</li>
 </ul>
 <p>Here is an example (the live-coding script may differ):</p>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load add-on packages that we need</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/sckott/cowsay">"cowsay"</a></span><span class="op">)</span></span>
@@ -261,28 +261,28 @@ There are two tweaks that you should do to your RStudio installation to maximize
 </h4>
 <p><a name="rcalc"></a></p>
 <p>One simple way to learn about the R console is to use it as a calculator. Enter the lines of code below and see if your results match. Be prepared to make lots of typos (at first) :/</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## REPL: Read/Evaluate/Print Loop</span></span>
 <span><span class="co">## R prints results back at you</span></span>
 <span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>The R console remembers a history of the commands you typed in the past. Use the up and down arrow keys on your keyboard to scroll backwards and forwards through your history. It's a lot faster than re-typing.</p>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">3</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>You can break up math expressions over multiple lines; R waits for a complete expression before processing it.</p>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## here comes a long expression</span></span>
 <span><span class="co">## let's break it over multiple lines</span></span>
 <span><span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span> <span class="op">+</span> <span class="fl">4</span> <span class="op">+</span> <span class="fl">5</span> <span class="op">+</span> <span class="fl">6</span> <span class="op">+</span></span>
 <span>    <span class="fl">7</span> <span class="op">+</span> <span class="fl">8</span> <span class="op">+</span> <span class="fl">9</span> <span class="op">+</span></span>
 <span>    <span class="fl">10</span></span></code></pre></div>
 <pre><code>## [1] 55</code></pre>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">"Good afternoon"</span></span></code></pre></div>
 <pre><code>## [1] "Good afternoon"</code></pre>
 <p>You can break up text over multiple lines; R waits for a close quote before processing it.</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">"There is nothing in the world </span></span>
 <span><span class="st">that makes people so unhappy as fear.  </span></span>
 <span><span class="st">The misfortune that befalls us is </span></span>
@@ -292,7 +292,7 @@ There are two tweaks that you should do to your RStudio installation to maximize
 <span><span class="st">- Friedrich Schiller"</span></span></code></pre></div>
 <pre><code>## [1] "There is nothing in the world \nthat makes people so unhappy as fear.  \nThe misfortune that befalls us is \nseldom, or never, as bad as that \nwhich we fear.\n\n- Friedrich Schiller"</code></pre>
 <p>You can add comments to an R script by with the ’#’ symbol. The R interpreter will ignore characters from the # symbol to the end of the line.</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## comments: any text from '#' on is ignored until end of line</span></span>
 <span><span class="fl">22</span> <span class="op">/</span> <span class="fl">7</span>  <span class="co"># approximation to pi</span></span></code></pre></div>
 <pre><code>## [1] 3.142857</code></pre>
@@ -304,7 +304,7 @@ There are two tweaks that you should do to your RStudio installation to maximize
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>    <span class="fl">8657</span><span class="op">/</span><span class="fl">6.5</span></span></code></pre></div>
 <pre><code>## [1] 1331.846</code></pre>
 </div>
@@ -323,19 +323,19 @@ name)</li>
 <li>must begin with a letter (<code>m2</code> is a valid name, but <code>2m</code> is not)</li>
 </ul>
 <p>Use the assignment operator <code>&lt;-</code> to assign the value on the right to the variable named on the left.</p>
-<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## use the assignment operator '&lt;-'</span></span>
 <span><span class="co">## R stores the number in the variable</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span></code></pre></div>
 <p>Now that we have set <code>x</code> to a value, we can do something with it:</p>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">*</span> <span class="fl">2</span></span>
 <span></span>
 <span><span class="co">## R evaluates the expression and stores the result in the variable</span></span>
 <span><span class="va">boring_calculation</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">2</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Note that it doesn't print the result back at you when it's stored. To view the result, just type the variable name on a blank line.</p>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">boring_calculation</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
@@ -343,12 +343,12 @@ name)</li>
 <h4>
 <span class="header-section-number">B.4.1.3</span> Whitespace<a class="anchor" aria-label="anchor" href="#whitespace"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># R waits until next line for evaluation</span></span>
 <span><span class="op">(</span><span class="fl">3</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span> <span class="op">*</span></span>
 <span>     <span class="fl">5</span></span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
-<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># often useful to spread function arguments over multiple lines</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sckott/cowsay">cowsay</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"This function call is far too wide to fit all on one line"</span>,</span>
@@ -383,7 +383,7 @@ When you see <code>&gt;</code> at the beginning of a line, that means R is waiti
 <span class="header-section-number">B.4.1.4</span> The workspace<a class="anchor" aria-label="anchor" href="#the-workspace"><i class="fas fa-link"></i></a>
 </h4>
 <p>Anytime you assign something to a new variable, R creates a new object in your workspace. Objects in your workspace exist until you end your session; then they disappear forever (unless you save them).</p>
-<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># print the objects in the workspace</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="st">"x"</span><span class="op">)</span>   <span class="co"># remove the object named x from the workspace</span></span>
@@ -428,13 +428,13 @@ When you see <code>&gt;</code> at the beginning of a line, that means R is waiti
 </table></div>
 <p>There is also a specific data type called a <code>factor</code> which will probably give you a headache sooner or later, but we can get by for now without them.</p>
 <p>Character strings can include basically anything, including quotes, but if you want a quote to be included you have to 'escape' it using a backslash:</p>
-<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_string</span> <span class="op">&lt;-</span> <span class="st">"The instructor said, \"R is cool,\" and the class agreed."</span></span>
 <span><span class="va">my_string</span></span></code></pre></div>
 <pre><code>## [1] "The instructor said, \"R is cool,\" and the class agreed."</code></pre>
 <p>Note that if you just type a plain number such as <code>10</code> it is stored as a double, even if it doesn't have a decimal point. If you want it to be an exact integer, use the <code>L</code> suffix (<code>10L</code>).</p>
 <p>If you ever want to know the data type of something, use the class function. There is also the <code>mode</code> function which is specifically for vectors.</p>
-<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="co"># numeric</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">10L</span><span class="op">)</span> <span class="co"># integer</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="st">"10"</span><span class="op">)</span> <span class="co"># string</span></span>
@@ -452,7 +452,7 @@ When you see <code>&gt;</code> at the beginning of a line, that means R is waiti
 </h3>
 <p><a name="vectors"></a></p>
 <p>One of the most fundamental data types in R is the vector. A vector in R is like a vector in math: a set of ordered elements. All of the elements in a vector must be of the same <em>data type</em> (numeric, character, factor). You can create a vector by enclosing the elements in <code>c(...)</code>, as shown below.</p>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## put information into a vector using c(...)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span></span>
@@ -474,16 +474,16 @@ You can't mix data types in a vector; all elements of the vector must be the sam
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vect1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">15</span>, <span class="fl">7.6</span>, <span class="fl">9</span>, <span class="fl">15</span>, <span class="fl">42</span><span class="op">)</span></span></code></pre></div>
 </div>
 <p>OK, that's easy enough, but here's a question. When you type a single number in the console, it spits it back out to you, like this:</p>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">3</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Why is there a <code>[1]</code> there in the output? i.e., why is the output <code>[1] 3</code> and not just <code>3</code>?</p>
 <p>We'll eventually get to the answer, but let's see if you can discover it yourself through experiment. There is an operator <code>:</code> that, when placed between two integers <code>x</code> and <code>y</code> like so: <code>x:y</code> will yield the sequence of integers from x to y inclusive. Let's make a big long vector of numbers and print it out.</p>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vec</span> <span class="op">&lt;-</span> <span class="fl">200</span><span class="op">:</span><span class="fl">400</span></span>
 <span><span class="va">vec</span></span></code></pre></div>
 <pre><code>##   [1] 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217
@@ -501,15 +501,15 @@ Solution
 <p>Note the number in square brackets on the left hand side of the output. What do you think this is?</p>
 <p>The variable <code>vec</code> is an ordered container of 200 elements, in this case, the integers from 200 to 400. The bracked number on the left hand side tells you the <strong>numeric index</strong> (i.e., element number) corresponding to the first value in that row. So the first value is 200, the 19th value is 218, the 37th value is 236, etc.</p>
 <p>You can pick the nth element from a vector using the bracket syntax. For instance, let's pull out the 2nd element of <code>vec</code>.</p>
-<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vec</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] 201</code></pre>
 <p>Recall that the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> operator creates vectors. If we wanted to pick out more than one specific value of some vector by position, we can make a vector of numbers like so:</p>
-<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">19L</span>, <span class="fl">37L</span>, <span class="fl">55L</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]  1 19 37 55</code></pre>
 <p>And then pull them out using the <code>[]</code> operator, which is the <em>extraction</em> operator, on the variable <code>vec</code>.</p>
-<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vec</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">19L</span>, <span class="fl">37L</span>, <span class="fl">55L</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
 <span><span class="co">## note also:</span></span>
@@ -522,19 +522,19 @@ Solution
 ## [1] 200 200 218 218 218 218</code></pre>
 <p>OK let's return to our original question: why did we get <code>[1] 3</code> when we just typed <code>3L</code>? The answer should now be clear: when we entered a single number, R created a vector with a single element.</p>
 <p>You can also create 'named' vectors, where each elements has a name. For example:</p>
-<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>first <span class="op">=</span> <span class="fl">77.9</span>, second <span class="op">=</span> <span class="op">-</span><span class="fl">13.2</span>, third <span class="op">=</span> <span class="fl">100.1</span><span class="op">)</span></span>
 <span><span class="va">vec2</span></span></code></pre></div>
 <pre><code>##  first second  third 
 ##   77.9  -13.2  100.1</code></pre>
 <p>We can then access elements by name using a character vector within the square brackets. We can put them in any order we want, and we can repeat elements:</p>
-<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vec2</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"third"</span>, <span class="st">"second"</span>, <span class="st">"second"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>##  third second second 
 ##  100.1  -13.2  -13.2</code></pre>
 <p>We can get the vector of names using the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> function, and we can set or change them using something like <code>names(vec2) &lt;- c("n1", "n2", "n3")</code>.</p>
 <p>Another way to access elements is by using a logical vector within the square brackets. This will pull out the elements of the vector for which the corresponding element of the logical vector is <code>TRUE</code>. The logical vector must have the same length as the original. You can find out how long a vector is using the <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> function.</p>
-<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span></span>
 <span><span class="va">vec2</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] 3
@@ -542,7 +542,7 @@ Solution
 ##  77.9 100.1</code></pre>
 <p>Here are some useful tricks to save typing when creating vectors. Recall that in the command <code>x:y</code> the <code>:</code> operator would give you the sequence of integers from <code>x:y</code>.</p>
 <p>What if you want to repeat a vector many times? You could either type it out (painful) or use the <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function, which can repeat vectors in different ways.</p>
-<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># ten zeroes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span></span>
@@ -554,7 +554,7 @@ Solution
 ##  [1] 1 3 1 3 1 3 1 3 1 3 1 3 1 3
 ## [1]  TRUE FALSE  TRUE FALSE</code></pre>
 <p>What if you want to create a sequence but with something other than integer steps? You can use the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function. You can learn about this in the exercises below.</p>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Repeat a vector</span></span>
 <span><span class="co"># See the ?rep function</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span>
@@ -582,7 +582,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">letters</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">20</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 </div>
 </li>
@@ -591,7 +591,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/colors.html">colors</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 </li>
@@ -604,29 +604,29 @@ Solution
 </h3>
 <p><a name="vectorized_ops"></a></p>
 <p>R performs calculations on vectors in a special way. Let's look at an example using <span class="math inline">\(z\)</span>-scores. <span class="math inline">\(z\)</span>-scores is <em>deviation score</em> (a score minus a mean) divided by a standard deviation. You will learn more about these concepts later in the course. Let's say we have a set of four IQ scores.</p>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## example IQ scores: mu = 100, sigma = 15</span></span>
 <span><span class="va">iq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">86</span>, <span class="fl">101</span>, <span class="fl">127</span>, <span class="fl">99</span><span class="op">)</span></span></code></pre></div>
 <p>If we want to subtract the mean from these four scores, we just use the following code:</p>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">iq</span> <span class="op">-</span> <span class="fl">100</span></span></code></pre></div>
 <pre><code>## [1] -14   1  27  -1</code></pre>
 <p>This subtracts 100 from each element of the vector. R automatically assumes that this is what you wanted to do; it is called a <em>vectorized operation</em> and it makes it possible to express operations more efficiently.</p>
 <p>To calculate <span class="math inline">\(z\)</span>-scores we use the formula:</p>
 <p><span class="math inline">\(z = \frac{X - \mu}{\sigma}\)</span></p>
 <p>where X are the scores, <span class="math inline">\(\mu\)</span> is the mean, and <span class="math inline">\(\sigma\)</span> is the standard deviation. We can expression this formula in R as follows:</p>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## z-scores</span></span>
 <span><span class="op">(</span><span class="va">iq</span> <span class="op">-</span> <span class="fl">100</span><span class="op">)</span> <span class="op">/</span> <span class="fl">15</span></span></code></pre></div>
 <pre><code>## [1] -0.93333333  0.06666667  1.80000000 -0.06666667</code></pre>
 <p>You can see that it computed all four <span class="math inline">\(z\)</span>-scores with a single line of code. Very efficient!</p>
 <p>One thing that is very useful are vectorized logical tests. For instance, let's say you wanted to find out which of a set of p-values are lower than .05. You could do it easily like so:</p>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_pvals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">.001</span>, <span class="fl">.33</span>, <span class="fl">.049</span>, <span class="fl">.051</span>, <span class="fl">.02</span>, <span class="fl">.773</span><span class="op">)</span></span>
 <span><span class="va">my_pvals</span> <span class="op">&lt;</span> <span class="fl">.05</span></span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 <p>You could then pull out only the significant p-values like so:</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_pvals</span><span class="op">[</span><span class="va">my_pvals</span> <span class="op">&lt;</span> <span class="fl">.05</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] 0.001 0.049 0.020</code></pre>
 <p>In plain English, the above command says, "give me those elements of <code>my_pvals</code> for which <code>my_pvals &lt; .05</code> is true."" Note that <code>my_pvals &lt; .05</code> is first evaluated to create a logical vector, and this logical vector is then used as an index to <code>my_pvals</code>.</p>
@@ -641,7 +641,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_ints</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">20</span></span>
 <span><span class="va">my_ints</span> <span class="op">/</span> <span class="fl">5</span></span></code></pre></div>
 <pre><code>##  [1] 0.0 0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6
@@ -654,7 +654,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_ints</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">5</span></span></code></pre></div>
 <pre><code>##  [1] 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0 1 2 3 4 0</code></pre>
 </div>
@@ -665,7 +665,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pvals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">is_sig</span> <span class="op">&lt;-</span> <span class="va">pvals</span> <span class="op">&lt;</span> <span class="fl">.05</span></span>
@@ -707,29 +707,26 @@ R session. The next time you start R, you will need to run the
 </ul>
 <p>You may only be able to permanently install packages if you are using R on your own system; you may not be able to do this on public workstations because you will lack the appropriate privileges.</p>
 <p>Try installing the library fortunes on your system:</p>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"fortunes"</span><span class="op">)</span></span></code></pre></div>
 <p>If you don't get an error message, the installation was successful.</p>
 <p>You can then access the functionality of <code>fortune</code> for your current R session as follows:</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fortunes</span><span class="op">)</span></span></code></pre></div>
 <p>Once you have typed this, you can run the function <code><a href="https://rdrr.io/pkg/fortunes/man/fortunes.html">fortune()</a></code>, which spouts random wisdom from one of the R help lists:</p>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/fortunes/man/fortunes.html">fortune</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
-## What sort of editor would overlook this clear and demonstrable message leaping
-## out from the data in favour of some arcane argument about "types of sums of
-## squares"? Several answers come to mind: A power freak, a SAS afficianado, an
-## idiot.
-##    -- Bill Venables
-##       R-help (July 2007)</code></pre>
+## Soon, they'll be speaking R on the subway.
+##    -- Michael Rennie (giving 'Kudos to the R support team')
+##       R-help (July 2004)</code></pre>
 <p>Note that we will use the convention <code>package::function()</code> and <code>package::object</code> to indicate in which add-on package a function or object resides. For instance, if you see <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code>, that refers to the function <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> in the <code>readr</code> add-on package. If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context). Sometimes I will make this explicit by using <code>base</code> in the place of the package name; for instance, I might refer to <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> in base as <code>base::rnorm()</code>.</p>
 </div>
 <div id="help" class="section level3" number="10.4.6">
 <h3>
 <span class="header-section-number">B.4.6</span> Getting help<a class="anchor" aria-label="anchor" href="#help"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># these methods are all equivalent ways of getting help</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="st">"say"</span><span class="op">)</span> <span class="co"># if package 'cowsay' is loaded</span></span>
 <span><span class="op">?</span><span class="va">say</span></span>
@@ -746,7 +743,7 @@ R session. The next time you start R, you will need to run the
 </h3>
 <p><a name="functions"></a></p>
 <p>R has a lot of build in functions that are useful, like <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> for rounding numbers, and <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> for sorting them. Here are some examples of how to use these functions.</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">iq_z</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">iq</span> <span class="op">-</span> <span class="fl">100</span><span class="op">)</span> <span class="op">/</span> <span class="fl">15</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">iq_z</span><span class="op">)</span></span>
@@ -755,7 +752,7 @@ R session. The next time you start R, you will need to run the
 <pre><code>## [1] -0.93333333 -0.06666667  0.06666667  1.80000000
 ## [1] -0.93  0.07  1.80 -0.07</code></pre>
 <p>If we wanted to sort the scores before rounding them, we can embed the <code>sort(iq_z)</code> function into the first argument of <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code>.</p>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">iq_z</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] -0.93 -0.07  0.07  1.80</code></pre>
 <div id="function-syntax" class="section level4" number="10.4.7.1">
@@ -778,29 +775,29 @@ like printing to the console.</p>
 <p>To illustrate, the function <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> generates random numbers from the standard normal distribution. The help page for <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> (accessed by typing <code><a href="https://rdrr.io/r/stats/Normal.html">?rnorm</a></code> in the console) shows that it has the syntax</p>
 <p><code>rnorm(n, mean = 0, sd = 1)</code></p>
 <p>where <code>n</code> is the number of randomly generated numbers you want, <code>mean</code> is the mean of the distribution, and <code>sd</code> is the standard deviation. The default mean is 0, and the default standard deviation is 1. There is no default for <code>n</code> which means you’ll get an error if you don't specify it:</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><code>Error in rnorm() : argument "n" is missing, with no default</code></p>
 <p>If you want 10 random numbers from a distribution with mean of 0 and standard deviation, you can just use the defaults.</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1]  0.1967712 -0.5587854  0.2716748  0.3022627 -0.1919369 -0.9487713
-##  [7] -1.0863191 -0.9423518 -1.2065339 -0.9655323</code></pre>
+<pre><code>##  [1]  0.93370927 -0.06050809  0.14207386 -0.97204093  0.87316627 -3.27571853
+##  [7]  0.34837529 -0.80687455  1.70834984  0.87046681</code></pre>
 <p>If you want 10 numbers from a distribution with a mean of 100:</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1]  99.83008 101.42353 100.28083  99.55231  99.95402  99.54637  99.77117
-##  [8] 101.36929  99.78490 101.03028</code></pre>
+<pre><code>##  [1] 101.52094  99.93525  99.73097 100.50478 100.22768  98.87631 101.58874
+##  [8]  99.65958  98.10569  97.97780</code></pre>
 <p>This would be an equivalent but less efficient way of calling the function:</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] 100.98047  99.52112  99.18865 101.04470 102.56075  99.41233 101.26920
-##  [8]  99.48296 100.33588 100.32544</code></pre>
+<pre><code>##  [1] 100.33002 100.65356  98.24380  99.61379  99.49333  98.79674 100.32698
+##  [8] 100.58943 101.01614  99.96198</code></pre>
 <p>We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call. However, if we want to change the default for an argument coming later in the list, then we need to name it. For instance, if we wanted to keep the default <code>mean = 0</code> but change the standard deviation to 100 we would do it this way:</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##  [1] -114.95408  -54.31883  -79.61198   28.90973   46.81495 -222.05663
-##  [7]  161.88816  -43.69171 -100.80341 -153.28633</code></pre>
+<pre><code>##  [1] -89.041377 166.875758  20.633214 -17.616909  39.581162  29.479462
+##  [7] -54.676045  49.020583  37.546025  -8.812384</code></pre>
 </div>
 <div id="cowsay" class="section level4" number="10.4.7.2">
 <h4>
@@ -808,10 +805,10 @@ like printing to the console.</p>
 </h4>
 <p>For the following exercises, we will be working with the <code>cowsay</code> add-on package (<code><a href="https://rdrr.io/pkg/cowsay/man">help(package = "cowsay")</a></code>)</p>
 <p>Check to see if there are any <em>vignettes</em> available for this package.</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"cowsay"</span><span class="op">)</span></span></code></pre></div>
 <p>Load in and read the vignette to get an idea of how the package works.</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span><span class="op">(</span><span class="st">"cowsay_tutorial"</span>, package <span class="op">=</span> <span class="st">"cowsay"</span><span class="op">)</span></span></code></pre></div>
 <p>Your first task is to develop a reproducible script that accomplishes the tasks below. Compile the RMarkdown (rmd) document into HTML. Make sure the report includes the code in addition to the output.</p>
 <p>Important! Try to perform each task making the shortest function call you can by taking advantage of the function defaults and include the results in an R script.</p>
@@ -822,7 +819,7 @@ like printing to the console.</p>
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"FEED ME"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  -------------- 
@@ -850,7 +847,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"Hello world!"</span>, <span class="st">"shark"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  -------------- 
@@ -892,7 +889,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"If you want to know what God thinks of money, just look at the people he gave it to. ~Dorothy Parker"</span>, </span>
 <span>    <span class="st">"alligator"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
@@ -919,7 +916,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"It looks like you are trying to annihilate the planet with a particle beam. Are you sure you want to do this?"</span>, <span class="st">"clippy"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## 
@@ -943,15 +940,14 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="st">"fortune"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  -------------- 
-## Tom Backer Johnsen: I have just started looking at R, and are getting more and more irritated at myself for not having done that before. However, one of the things I have not found in the documentation is some way of preparing output from R for convenient formatting into something like MS Word.
-## Barry Rowlingson: Well whatever you do, don't start looking at LaTeX, because that will get you even more irritated at yourself for not having done it before.
-##  Tom Backer Johnsen and Barry Rowlingson
+## I recently attended a Ph.D. prelim exam where the candidate had proposed research on various ways of defining an R^2 statistic in the original data scale from a linear model fit to data in a transformed scale determined by the Box-Cox method. There were seven different possible definitions for R^2, all of which, as acknowledged by the candidate and by the thesis advisor, were incorrect. The purpose of this path-breaking study is to determine in some way which of these seven possible incorrect definitions should be used. My suggestion that the obvious answer was "none of them" was regarded as somewhat heretical.
+##  Douglas Bates
 ##  R-help
-##  February 2006 
+##  August 2000 
 ##  --------------
 ##     \
 ##       \
@@ -975,13 +971,13 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">creature</span> <span class="op">&lt;-</span> <span class="st">"spider"</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="fu">base</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/base/date.html">date</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">creature</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  ----- 
-## Thu Apr 27 09:24:14 2023 
+## Thu Apr 27 10:17:23 2023 
 ##  ------ 
 ##     \   
 ##      \
@@ -1002,13 +998,13 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">creature</span> <span class="op">&lt;-</span> <span class="st">"buffalo"</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/cowsay/man/say.html">say</a></span><span class="op">(</span><span class="fu">base</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/base/date.html">date</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">creature</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  -------------- 
-## Thu Apr 27 09:24:14 2023 
+## Thu Apr 27 10:17:23 2023 
 ##  --------------
 ##     \
 ##       \
@@ -1042,22 +1038,22 @@ Because pipes are a recent innovation, they are not part of base R. That means y
 or<br><code>Error: could not find function "%&gt;%"</code></p>
 <p>you tried to use <code>%&gt;%</code> before doing <code><a href="https://tidyverse.tidyverse.org">library("tidyverse")</a></code>.</p>
 <p>It is easiest to understand how to use pipes through an example. Let's say that we want to sample 5 random integers between 1 and 10 (with replacement), figure out which unique numbers were sampled, and then sort them in descending order. We will need to call three functions in a sequence: <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to generate the integers, <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> to figure out which unique integers were sampled (because the same integer may have been sampled multiple times), and then <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> with <code>decreasing = TRUE</code> to put them in descending order. So we might write code like this:</p>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">5</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">y</span>, <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># set second argument to 'TRUE' so that sort order is descending</span></span></code></pre></div>
-<pre><code>## [1] 10  7  4  3  1</code></pre>
+<pre><code>## [1] 10  7  6  3  2</code></pre>
 <p>While there is nothing wrong with this code, it required us to define variables x and y which we won't ever need again, and which clutter up our environment. To avoid this you could rewrite this code using nested function calls like so:</p>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">5</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1] 6 5 4 1</code></pre>
+<pre><code>## [1] 7 3 1</code></pre>
 <p>(If the above call looks confusing, it should!) The call to <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> is embedded within a call to <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> which in turn is embedded within a call to <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code>. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, whose result is then passed in as the first argument to <code>unique(</code>), whose result in turn is passed in as the first argument to <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code>; notice the second argument of sort (<code>TRUE</code>) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.</p>
 <p>This is where pipes come in. You can re-write the original code using pipes like so:</p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">5</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## [1] 9 8 5 2</code></pre>
+<pre><code>## [1] 10  9  8  7  3</code></pre>
 <p>R will calculate the result of <code>sample(1:10, 5, replace = TRUE)</code> and then pass this result as the first argument of <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code>; then, the result of <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> will in turn be passed along as the first argument of <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> with the second argument set to <code>TRUE</code>. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.</p>
 <div id="exercises-2" class="section level4" number="10.4.8.1">
 <h4>
@@ -1066,7 +1062,7 @@ or<br><code>Error: could not find function "%&gt;%"</code></p>
 <ol style="list-style-type: decimal">
 <li>Re-write the following sequence of commands into a single 'pipeline'.</li>
 </ol>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># do not edit this chunk</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span> <span class="co"># integers from 1:20</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">2</span><span class="op">)</span> <span class="co"># then repeat them twice</span></span>
@@ -1075,13 +1071,13 @@ or<br><code>Error: could not find function "%&gt;%"</code></p>
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Deconstruct the pipeline below back into separate commands.</li>
 </ol>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># do not edit this chunk</span></span>
 <span><span class="va">lager</span> <span class="op">&lt;-</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">18</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1090,7 +1086,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regal</span> <span class="op">&lt;-</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">18</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="va">reversed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">regal</span><span class="op">)</span></span>
 <span><span class="va">lager</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">reversed</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="co"># make it into a string</span></span></code></pre></div>
@@ -1102,7 +1098,7 @@ Solution
 <span class="header-section-number">B.4.9</span> Lists<a class="anchor" aria-label="anchor" href="#lists"><i class="fas fa-link"></i></a>
 </h3>
 <p>Recall that vectors can contain data of only one type. What if you want to store a collection of data of different data types? For that purpose you would use a <code>list</code>. Define a list using the <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> function.</p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## information about today</span></span>
 <span><span class="va">today</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>date <span class="op">=</span> <span class="st">"2018-12-06"</span>,</span>
 <span>     n_emails_in_inbox <span class="op">=</span> <span class="fl">500L</span>,</span>
@@ -1111,16 +1107,16 @@ Solution
 <span>     average_temp <span class="op">=</span> <span class="fl">6.5</span></span>
 <span>     <span class="op">)</span></span></code></pre></div>
 <p>You can access elements of a list either by position:</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## note the use of the double square bracket!</span></span>
 <span><span class="va">today</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] 500</code></pre>
 <p>or by name, like this:</p>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">today</span><span class="op">[[</span><span class="st">"people_who_stopped_by"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] "Niamh" "Lynda" "Alex"</code></pre>
 <p>or like this:</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">today</span><span class="op">$</span><span class="va">weather</span></span></code></pre></div>
 <pre><code>## [1] "rainy"</code></pre>
 <p class="alert alert-info">
@@ -1137,10 +1133,10 @@ Fun fact: tabular data, stored in <code>data.frame</code> or <code>tibble</code>
 <p>Tabular data becomes especially important for when we talk about <strong>tidy data</strong> later on, which consists of a set of simple principles for structuring data.</p>
 <p>If we are creating a tibble from scratch, we can use the <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> function, and type the data right in. Note that if we want a value to repeat multiple times, we only have to specify a one-element vector; R will expand out the vector to fill out the table. All columns in the tibble must have the same lengths or be of length 1.</p>
 <p>If we want to use the <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> function, we either need to load the tibble package or the tidyverse package (which will itself load tibble in addition to other packages). Let's do the latter.</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span></span></code></pre></div>
 <p>We can get information about the table dimensions using the functions <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> (number of columns), <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> (number of rows), or <code><a href="https://rdrr.io/r/base/dim.html">dim()</a></code> (a vector with the number of rows and number of columns).</p>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">months</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">12</span>,</span>
 <span>                 name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>,</span>
 <span>                          <span class="st">"May"</span>, <span class="st">"Jun"</span>, <span class="st">"Jul"</span>, <span class="st">"Aug"</span>,</span>
@@ -1162,7 +1158,7 @@ Fun fact: tabular data, stored in <code>data.frame</code> or <code>tibble</code>
 <p>There are three ways to look at your tibble: <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> [*NB: capital 'V'], <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>, and <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>.</p>
 <p>The <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> method can be run explicitly, but is more commonly called by just typing the variable name on the blank line. Usually we only call <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> if we want fine control of how the information is displayed.</p>
 <p>Note that the default is not to print the entire table, but just the first 10 rows. Let's look at the <code>starwars</code> table that is built into the tidyverse.</p>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span></span>
 <span><span class="va">starwars</span></span></code></pre></div>
 <pre><code>## # A tibble: 87 × 14
@@ -1183,10 +1179,10 @@ Fun fact: tabular data, stored in <code>data.frame</code> or <code>tibble</code>
 ## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <p>You can see that this is a 87 rows by 14 column table, and we can only see the first 10 rows and first 8 columns.</p>
 <p>If I want to see all 87 rows for some reason, I would use an explicit call to <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>, and set the argument <code>n</code> to the number of rows I want to see. If I want all of them, just use <code>+Inf</code>, the symbol for 'infinite' rows.</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">starwars</span>, n <span class="op">=</span> <span class="op">+</span><span class="cn">Inf</span><span class="op">)</span> <span class="co"># try this in the console</span></span></code></pre></div>
 <p>But we still can't see all the columns. If this is important to us, we can use <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>, which gives a sideways version of the tibble.</p>
-<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 87
 ## Columns: 14
@@ -1206,7 +1202,7 @@ Fun fact: tabular data, stored in <code>data.frame</code> or <code>tibble</code>
 ## $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&gt;, "TIE Advanced x1",…</code></pre>
 <p>The other way to look at the table is a more graphical spreadsheet-like version given by <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> (capital 'V'). It can be useful in the console, but don't ever put this one in a script because it will create an annoying pop-up window when the user goes to run it.</p>
 <p>Note that <code>data.frame</code> objects are printed out in different ways from <code>tibble</code> objects. If you print a <code>data.frame</code> object with thousands or millions of rows, you won't just get a preview... you will spam your console with row upon row of data. If you want to make a data.frame into a tibble so that it prints out nicely, just use the <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code> function.</p>
-<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mtcars</span> <span class="co"># prints out way too many rows; TMI</span></span>
 <span></span>
 <span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="co"># much cleaner</span></span>
@@ -1217,7 +1213,7 @@ Fun fact: tabular data, stored in <code>data.frame</code> or <code>tibble</code>
 <span class="header-section-number">B.4.10.2</span> Accessing rows and columns<a class="anchor" aria-label="anchor" href="#accessing-rows-and-columns"><i class="fas fa-link"></i></a>
 </h4>
 <p>There are various base R ways of accessing specific columns or rows from a table that are useful to know about, but you'll be learning easier (and more readable) ways when we get to the lecture on <a href="04_wrangling.Rmd">data wrangling</a>. Examples of these base R accessing functions are provided here for reference.</p>
-<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">months</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span> <span class="co"># first row</span></span>
 <span></span>
 <span><span class="va">months</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span> <span class="co"># second column (position)</span></span>
@@ -1241,7 +1237,7 @@ Fun fact: tabular data, stored in <code>data.frame</code> or <code>tibble</code>
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># or you can do this with the tibble function</span></span>
 <span><span class="va">family</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Jorge"</span>, <span class="st">"Esther"</span>, <span class="st">"Mel"</span><span class="op">)</span>,</span>
 <span>                 age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">41</span>, <span class="fl">20</span><span class="op">)</span>,</span>
@@ -1262,7 +1258,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">iris2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span></code></pre></div>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -1283,7 +1279,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">8</span>,</span>
 <span>                 A <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A1"</span>, <span class="st">"A2"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
 <span>                 B <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span>,</span>
@@ -1313,10 +1309,10 @@ your working directory to that location.</p></li>
 Never put the <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> command in your script, because others will not have the same directory tree as you (and when your laptop dies and you get a new one, neither will you).
 </p>
 <p>If your script needs a file in a subdirectory of <code>new_analysis</code>, say, <code>analysis2/dat.rds</code>, load it in using a relative path:</p>
-<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"analysis2/dat.rds"</span><span class="op">)</span>  <span class="co"># right way</span></span></code></pre></div>
 <p>Do not load it in using an absolute path:</p>
-<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"C:/Carla's_files/thesis22/my_thesis/new_analysis/analysis2/dat.rds"</span><span class="op">)</span>   <span class="co"># wrong</span></span></code></pre></div>
 <p class="alert alert-info">
 Also note the convention of using forward slashes, unlike the Windows specific convention of using backward slashes. This is to make references to files platform independent.
@@ -1383,9 +1379,9 @@ Also note the convention of using forward slashes, unlike the Windows specific c
 1974,B,Stephen,866,10,10</code></pre>
 <p>There are six variables in this dataset, and their names are given in the first line of the file: <code>yr</code>, <code>sex</code>, <code>FirstForename</code>, <code>number</code>, <code>rank</code>, and <code>position</code>. You can see that the values for each of these variables are given in order, separated by commas, on each subsequent line of the file.</p>
 <p>When you read in CSV files, it is best practice to use the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code> function. The <code>readr</code> package is automatically loaaded as part of the <code>tidyverse</code> package, which we will be using in almost every script. Note that you would normally want to store the result of the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function to a variable, as so:</p>
-<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"my_data_file.csv"</span><span class="op">)</span></span></code></pre></div>
 <p>Once loaded, you can view your data using the data viewer. In the upper right hand window of RStudio, under the Environment tab, you will see the object <code>dat</code> listed.</p>
 <div class="inline-figure"><img src="images/01_walkthrough/my_data.png"></div>
@@ -1398,7 +1394,7 @@ Also note the convention of using forward slashes, unlike the Windows specific c
 <span class="header-section-number">B.4.11.3</span> Writing Data<a class="anchor" aria-label="anchor" href="#writing-data"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you have data that you want to save your data to a CSV file, use <code><a href="https://readr.tidyverse.org/reference/write_delim.html">readr::write_csv()</a></code>, as follows.</p>
-<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">dat</span>, <span class="st">"my_data_file2.csv"</span><span class="op">)</span></span></code></pre></div>
 <p>This will save the data in CSV format to your working directory.</p>
 </div>

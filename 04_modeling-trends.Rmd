@@ -13,6 +13,8 @@
 For the (made up) data below, you have longitudinal data for two groups, A and B, both of which show a quadratic trend over time. The data are in the R binary file [quadratic.rds](data/quadratic.rds){target="_download"}.
 
 ```{r load-data, echo=FALSE}
+library("tidyverse")
+
 qdata <- readRDS("data/quadratic.rds")
 ```
 
@@ -31,33 +33,18 @@ qdata <- readRDS("quadratic.rds")
 
 **Your task**: Using a single model, fit quadradic functions for both of the groups, with orthogonal polynomials.
 
-Tip: Use the following 'hack' to add the polynomial predictors to your tibble. (This is just an example of how to do it on a toy dataset, and so you'll need to adapt the code for your purposes).
-
-```{r hack}
-## make some toy data
-dat <- tibble(time = 1:20,
-              Y = rnorm(20))
-
-## matrix of polynomial predictors
-mx <- poly(dat$time, degree = 2, simple=TRUE)
-
-## add using mutate()
-dat2 <- dat %>%
-  mutate(t1 = mx[, 1], # first column
-         t2 = mx[, 2]) # second column
-```
+If you need help adding polynomial predictors to your data frame, check out the function [`poly_add_columns()`](https://rdrr.io/github/tjmahr/polypoly/man/poly_add_columns.html) from the **`polypoly`** R package (install it using `install.packages("polypoly")`).
 
 Note: You'll probably want to deviation or sum code your categorical predictor, for all the reasons mentioned in the last section on interactions.
 
 *Need help building your data? Here's the first part of the solution.*
 
 ```{r build-data, webex.hide="solution for creating the tibble"}
-mx <- poly(qdata$time, degree=2, simple=TRUE)
+library("polypoly")
 
 qdata2 <- qdata %>%
-  mutate(grp = if_else(group == "B", 1/2, -1/2),
-         t1 = mx[, 1],
-         t2 = mx[, 2])         
+  mutate(grp = if_else(group == "B", 1/2, -1/2)) %>%
+  poly_add_columns(time, degree = 2, prefix = "t")
 ```
 
 Now fit the model, then compare your result with the solution below.

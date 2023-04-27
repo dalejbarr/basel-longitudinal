@@ -121,39 +121,26 @@
 <span></span>
 <span><span class="va">qdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"quadratic.rds"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Your task</strong>: Using a single model, fit quadradic functions for both of the groups, with orthogonal polynomials.</p>
-<p>Tip: Use the following 'hack' to add the polynomial predictors to your tibble. (This is just an example of how to do it on a toy dataset, and so you'll need to adapt the code for your purposes).</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## make some toy data</span></span>
-<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>time <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,</span>
-<span>              Y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">## matrix of polynomial predictors</span></span>
-<span><span class="va">mx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">dat</span><span class="op">$</span><span class="va">time</span>, degree <span class="op">=</span> <span class="fl">2</span>, simple<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">## add using mutate()</span></span>
-<span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="va">dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>t1 <span class="op">=</span> <span class="va">mx</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, <span class="co"># first column</span></span>
-<span>         t2 <span class="op">=</span> <span class="va">mx</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="co"># second column</span></span></code></pre></div>
+<p>If you need help adding polynomial predictors to your data frame, check out the function <a href="https://rdrr.io/github/tjmahr/polypoly/man/poly_add_columns.html"><code>poly_add_columns()</code></a> from the <code>*polypoly*</code> R package (install it using <code>install.packages("polypoly")</code>).</p>
 <p>Note: You'll probably want to deviation or sum code your categorical predictor, for all the reasons mentioned in the last section on interactions.</p>
 <p><em>Need help building your data? Here's the first part of the solution.</em></p>
 <div class="webex-solution">
 <button>
 solution for creating the tibble
 </button>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">qdata</span><span class="op">$</span><span class="va">time</span>, degree<span class="op">=</span><span class="fl">2</span>, simple<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/tjmahr/polypoly">"polypoly"</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">qdata2</span> <span class="op">&lt;-</span> <span class="va">qdata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>grp <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"B"</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span>,</span>
-<span>         t1 <span class="op">=</span> <span class="va">mx</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>,</span>
-<span>         t2 <span class="op">=</span> <span class="va">mx</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span>         </span></code></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>grp <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"B"</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/polypoly/man/poly_add_columns.html">poly_add_columns</a></span><span class="op">(</span><span class="va">time</span>, degree <span class="op">=</span> <span class="fl">2</span>, prefix <span class="op">=</span> <span class="st">"t"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <p>Now fit the model, then compare your result with the solution below.</p>
 <div class="webex-solution">
 <button>
 solution for fitting the model
 </button>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">response</span> <span class="op">~</span> <span class="op">(</span><span class="va">t1</span> <span class="op">+</span> <span class="va">t2</span><span class="op">)</span> <span class="op">*</span> <span class="va">grp</span>, data <span class="op">=</span> <span class="va">qdata2</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></code></pre></div>
@@ -168,11 +155,11 @@ solution for fitting the model
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
 ## (Intercept) 303.146840   0.317951 953.440  &lt; 2e-16 ***
-## t1           -3.447607   2.010897  -1.714   0.0955 .  
-## t2           12.970600   2.010897   6.450 2.26e-07 ***
+## t1           -2.437826   1.421919  -1.714   0.0955 .  
+## t2            9.171599   1.421919   6.450 2.26e-07 ***
 ## grp          -0.006512   0.635901  -0.010   0.9919    
-## t1:grp      -35.307246   4.021794  -8.779 2.93e-10 ***
-## t2:grp      -31.987768   4.021794  -7.954 2.89e-09 ***
+## t1:grp      -24.965993   2.843838  -8.779 2.93e-10 ***
+## t2:grp      -22.618767   2.843838  -7.954 2.89e-09 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
@@ -185,7 +172,7 @@ solution for fitting the model
 <button>
 solution
 </button>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">mod</span>, <span class="va">.</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span><span class="va">t1</span><span class="op">:</span><span class="va">grp</span> <span class="op">-</span><span class="va">t2</span><span class="op">:</span><span class="va">grp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">mod</span>, <span class="va">mod2</span><span class="op">)</span></span></code></pre></div>
@@ -205,7 +192,7 @@ solution
 <button>
 hint: see the code that made the graph above
 </button>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">qdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">response</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">group</span>, shape<span class="op">=</span><span class="va">group</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -213,7 +200,7 @@ hint: see the code that made the graph above
 <button>
 solution
 </button>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qdata3</span> <span class="op">&lt;-</span> <span class="va">qdata2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>fitted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>

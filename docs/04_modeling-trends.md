@@ -27,22 +27,7 @@ qdata <- readRDS("quadratic.rds")
 
 **Your task**: Using a single model, fit quadradic functions for both of the groups, with orthogonal polynomials.
 
-Tip: Use the following 'hack' to add the polynomial predictors to your tibble. (This is just an example of how to do it on a toy dataset, and so you'll need to adapt the code for your purposes).
-
-
-```r
-## make some toy data
-dat <- tibble(time = 1:20,
-              Y = rnorm(20))
-
-## matrix of polynomial predictors
-mx <- poly(dat$time, degree = 2, simple=TRUE)
-
-## add using mutate()
-dat2 <- dat %>%
-  mutate(t1 = mx[, 1], # first column
-         t2 = mx[, 2]) # second column
-```
+If you need help adding polynomial predictors to your data frame, check out the function [`poly_add_columns()`](https://rdrr.io/github/tjmahr/polypoly/man/poly_add_columns.html) from the `*polypoly*` R package (install it using `install.packages("polypoly")`).
 
 Note: You'll probably want to deviation or sum code your categorical predictor, for all the reasons mentioned in the last section on interactions.
 
@@ -52,12 +37,11 @@ Note: You'll probably want to deviation or sum code your categorical predictor, 
 <div class='webex-solution'><button>solution for creating the tibble</button>
 
 ```r
-mx <- poly(qdata$time, degree=2, simple=TRUE)
+library("polypoly")
 
 qdata2 <- qdata %>%
-  mutate(grp = if_else(group == "B", 1/2, -1/2),
-         t1 = mx[, 1],
-         t2 = mx[, 2])         
+  mutate(grp = if_else(group == "B", 1/2, -1/2)) %>%
+  poly_add_columns(time, degree = 2, prefix = "t")
 ```
 
 
@@ -86,11 +70,11 @@ summary(mod)
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
 ## (Intercept) 303.146840   0.317951 953.440  < 2e-16 ***
-## t1           -3.447607   2.010897  -1.714   0.0955 .  
-## t2           12.970600   2.010897   6.450 2.26e-07 ***
+## t1           -2.437826   1.421919  -1.714   0.0955 .  
+## t2            9.171599   1.421919   6.450 2.26e-07 ***
 ## grp          -0.006512   0.635901  -0.010   0.9919    
-## t1:grp      -35.307246   4.021794  -8.779 2.93e-10 ***
-## t2:grp      -31.987768   4.021794  -7.954 2.89e-09 ***
+## t1:grp      -24.965993   2.843838  -8.779 2.93e-10 ***
+## t2:grp      -22.618767   2.843838  -7.954 2.89e-09 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
