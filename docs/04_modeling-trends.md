@@ -27,7 +27,7 @@ qdata <- readRDS("quadratic.rds")
 
 **Your task**: Using a single model, fit quadradic functions for both of the groups, with orthogonal polynomials.
 
-If you need help adding polynomial predictors to your data frame, check out the function [`poly_add_columns()`](https://rdrr.io/github/tjmahr/polypoly/man/poly_add_columns.html) from the `*polypoly*` R package (install it using `install.packages("polypoly")`).
+If you need help adding polynomial predictors to your data frame, check out the function [`poly_add_columns()`](https://rdrr.io/github/tjmahr/polypoly/man/poly_add_columns.html) from the **`polypoly`** R package (install it using `install.packages("polypoly")`).
 
 Note: You'll probably want to deviation or sum code your categorical predictor, for all the reasons mentioned in the last section on interactions.
 
