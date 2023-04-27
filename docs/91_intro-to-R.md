@@ -804,12 +804,16 @@ fortune()
 
 ```
 ## 
-## Ivo Welch: Thanks. I will put in a suggestion that the docs refer to q() in
-## 'see also' for 'stop'.
-## Brian D. Ripley: I don't think anyone else is confusing 'exit' with 'stop',
-## though. I hope you don't when driving ....
-##    -- Ivo Welch and Brian D. Ripley
-##       R-help (March 2004)
+## Amer Siddique: looking for some thoughts on incorporating R functionality to
+## create histograms of data stored in an informix db. im gonna write the app in
+## .Net and will use a managed provider to access the data. what R libs might I
+## have to package in the assemblies? (sorry my Q is general as Ive only just
+## looked at wanting this yet)
+## Brian D. Ripley: Could you translate the question into English? My guess is
+## that you are writing in a lower-cased version of some Microsoft internal
+## language, but you don't even mention that this is for Windows (if it is).
+##    -- Amer Siddique and Brian D. Ripley (on using R in .NET apps)
+##       R-help (November 2004)
 ```
 
 Note that we will use the convention `package::function()` and `package::object` to indicate in which add-on package a function or object resides.  For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the `readr` add-on package.  If you see a function introduced without a package name, that means it is part of the base R system and not an add-on package (depending on the context).  Sometimes I will make this explicit by using `base` in the place of the package name; for instance, I might refer to `rnorm()` in base as `base::rnorm()`.
@@ -900,8 +904,8 @@ rnorm(10)
 ```
 
 ```
-##  [1]  0.5053930  0.5823241  2.0461151 -0.9236058 -2.1958814 -0.8220306
-##  [7]  0.1144639 -0.3677870  0.5313689  0.8758026
+##  [1]  0.54485947 -0.29350029 -0.04100064 -1.56279472  0.18896559 -2.06224600
+##  [7]  1.20879048  2.15278604 -0.72907042  0.71410155
 ```
 
 If you want 10 numbers from a distribution with a mean of 100:
@@ -912,8 +916,8 @@ rnorm(10, 100)
 ```
 
 ```
-##  [1] 101.72334  99.50851  99.22452 100.54475 100.66304  99.72878 100.41712
-##  [8] 100.60786  98.41635 100.18146
+##  [1] 101.16672  99.40569 100.01346  98.93953  98.78408 100.50998 100.92560
+##  [8] 100.07351 100.15445 100.23431
 ```
 
 This would be an equivalent but less efficient way of calling the function:
@@ -924,8 +928,8 @@ rnorm(n = 10, mean = 100)
 ```
 
 ```
-##  [1]  99.15794  98.35928  99.84512 100.20033  99.74686 100.22781  98.41508
-##  [8] 100.00175 100.52381 100.42801
+##  [1]  97.21629  99.80328 102.75591  99.03633  99.38267  99.00847  98.33013
+##  [8]  98.69141 100.14196 100.08205
 ```
 
 We don't need to name the arguments because R will recognize that we intended to fill in the first and second arguments by their position in the function call.  However, if we want to change the default for an argument coming later in the list, then we need to name it.  For instance, if we wanted to keep the default `mean = 0` but change the standard deviation to 100 we would do it this way:
@@ -936,8 +940,8 @@ rnorm(10, sd = 100)
 ```
 
 ```
-##  [1]  92.008028  27.167253 -44.472587 186.269195  -6.926662  51.808973
-##  [7]   5.706110  98.492267 166.921747  12.837114
+##  [1] 232.183326 -69.439694   8.435691   9.024224 -30.378446  76.665953
+##  [7] -44.967968   8.834190  46.601982 126.141603
 ```
 
 #### Exercises {#cowsay}
@@ -1104,11 +1108,13 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## For recursive objects, search for recursive objects.
-    ##  Barry Rowlingson
-    ##  in a thread about "Recursive objects" and how to search for former discussions about the topic
-    ##  R-devel
-    ##  May 2011 
+    ## John Kane: I have 120 columns in a data.frame. I have one value in a column named "blaw" that I want to change. How do I find the coordinates?
+    ## Roger Koenker: It is the well-known wicked which problem: If you had (grammatically incorrectly) thought "... which I want to change" then you might have been led to type (in another window):
+    ##   ?which
+    ## and you would have seen the light. Maybe that() should be an alias for which()?
+    ##  John Kane and Roger Koenker
+    ##  R-help
+    ##  August 2006 
     ##  --------------
     ##     \
     ##       \
@@ -1140,7 +1146,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  ----- 
-    ## Fri Apr 28 00:32:19 2023 
+    ## Fri Apr 28 00:39:14 2023 
     ##  ------ 
     ##     \   
     ##      \
@@ -1169,7 +1175,7 @@ Important! Try to perform each task making the shortest function call you can by
     ```
     ## 
     ##  -------------- 
-    ## Fri Apr 28 00:32:19 2023 
+    ## Fri Apr 28 00:39:14 2023 
     ##  --------------
     ##     \
     ##       \
@@ -1215,7 +1221,7 @@ sort(y, TRUE) # set second argument to 'TRUE' so that sort order is descending
 ```
 
 ```
-## [1] 10  9  8
+## [1] 10  7  2
 ```
 
 
@@ -1227,7 +1233,7 @@ sort(unique(sample(1:10, 5, replace = TRUE)), TRUE)
 ```
 
 ```
-## [1] 7 6 5 4 3
+## [1] 10  7  4  3  2
 ```
 
 (If the above call looks confusing, it should!) The call to `sample()` is embedded within a call to `unique()` which in turn is embedded within a call to `sort()`. The functions are executed from most embedded (the "bottom") to least embedded (the "top"), starting with the function `sample()`, whose result is then passed in as the first argument to `unique(`), whose result in turn is passed in as the first argument to `sort()`; notice the second argument of sort (`TRUE`) is all the way at the end of the statement, making it hard to figure out which of the three functions it belongs to. We read from left to right; however, understanding this code requires us to work our way from right to left, and therefore unnatural. Moreover it is simply an ugly line of code.
@@ -1241,7 +1247,7 @@ sample(1:10, 5, replace = TRUE) %>%
 ```
 
 ```
-## [1] 9 8 6 2
+## [1] 9 8 7 5 3
 ```
 
 R will calculate the result of `sample(1:10, 5, replace = TRUE)` and then pass this result as the first argument of `unique()`; then, the result of `unique()` will in turn be passed along as the first argument of `sort()` with the second argument set to `TRUE`. The thing to note here is that for any function call on the right hand side of a pipe, you should omit the first argument and start with the second, because the pipe automatically places the result of the call on the left in that spot.

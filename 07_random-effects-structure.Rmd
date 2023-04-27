@@ -1,5 +1,7 @@
 # Longitudinal analysis of multilevel data
 
+[Slides on random effect structure](slides/07_simgen/index.html)
+
 ## Truth-trajectory data
 
 ```{r, include=FALSE}
