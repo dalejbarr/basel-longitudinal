@@ -25,7 +25,7 @@ github-repo: "dalejbarr/basel-longitudinal"
 
 The goal of this workshop is to provide a foundational understanding of the use of mixed-effects models in the analysis of panel (longitudinal) data, with a focus on repeated-measures data. Mixed-effects models are regression models that estimate a 'mix' of fixed and random effects. 
 
-Two pre-requisites for the workshop are: (1) basic understanding of linear regression and (2) some familiarity with the R statistical programming environment (https://cran.r-project.org) is an important pre-requisite for the workshop. 
+Two pre-requisites for the workshop are: (1) basic understanding of linear regression and (2) some familiarity with the R statistical programming environment (https://cran.r-project.org). 
 
 Please have R and RStudio installed on your laptop prior to the start of the workshop, including the packages **`{tidyverse}`** and **`lme4`**. You can find help on installation [in the Appendix](installing-and-configuring-rrstudio.html).
 

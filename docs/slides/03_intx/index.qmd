@@ -285,7 +285,7 @@ tribble(~term, ~treatment, ~sum, ~deviation,
 #  kableExtra::kable_styling(full_width = FALSE, bootstrap_options = "striped")
 ```
 
-## $k > 2$: dummy coding
+## More than 2 levels ($k > 2$)?
 
 Arbitrarily choose one as "baseline".
 
