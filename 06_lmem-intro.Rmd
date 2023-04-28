@@ -2,7 +2,7 @@
 
 ## Resources
 
-[Slides](slides/06_lmm1/index.html)
+[Slides](slides/06_lmm/index.html)
 
 [My book chapter](https://psyteachr.github.io/stat-models-v1/introducing-linear-mixed-effects-models.html) contains in-depth discussion and links to further resources.
 
